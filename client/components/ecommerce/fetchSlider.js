@@ -25,7 +25,7 @@ const FetchSlider = ({ productFilters }) => {
     const fetchProducts = async () => {
 
         // With Category
-        const allProducts = await fetchByCatagory("/static/product.json", {
+        const allProducts = await fetchByCatagory(`${server}/products`, {
             category: productFilters.category,
         });
 
@@ -34,23 +34,23 @@ const FetchSlider = ({ productFilters }) => {
         // const allProducts = await request.json();
 
         // Featured Product
-        const featuredProducts = allProducts.filter((item) => item.featured);
+        const featuredProducts = allProducts?.products?.filter((item) => item.featured);
 
         // Trending Product
-        const trendingProducts = allProducts.filter((item) => item.trending);
+        const trendingProducts = allProducts?.products?.filter((item) => item.trending);
 
         // Best Seller
-        const bestSellerProducts = allProducts.sort(function (a, b) {
+        const bestSellerProducts = allProducts?.products?.sort(function (a, b) {
             return a.totalSell > b.totalSell ? -1 : 1;
         });
 
         // New Arrival
-        const newArrivalProducts = allProducts.sort(function (a, b) {
+        const newArrivalProducts = allProducts?.products?.sort(function (a, b) {
             return a.created > b.created ? -1 : 1;
         });
 
         // Discount
-        const discountProduct = allProducts.filter(
+        const discountProduct = allProducts?.products?.filter(
             (item) => item.discount.isActive
         );
 

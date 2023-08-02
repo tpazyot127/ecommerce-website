@@ -6,6 +6,7 @@ import { addToCart } from "../../redux/action/cart";
 import { addToCompare } from "../../redux/action/compareAction";
 import { openQuickView } from "../../redux/action/quickViewAction";
 import { addToWishlist } from "../../redux/action/wishlistAction";
+import { formattedPrice } from "../../util/util";
 
 const SingleProduct2 = ({
     product,
@@ -112,8 +113,8 @@ const SingleProduct2 = ({
                     </div>
 
                     <div className="product-price mt-10">
-                        <span>${product.price} </span>
-                        <span className="old-price">{product.oldPrice && `$ ${product.oldPrice}`}</span>
+                        <span>{formattedPrice(product.price)} </span>
+                        <span className="old-price">{product.oldPrice && `${formattedPrice(product.oldPrice)}`}</span>
                     </div>
                     <div className="sold mt-15 mb-15">
                         <div className="progress mb-5">
@@ -123,7 +124,7 @@ const SingleProduct2 = ({
                                 style={{ width: "50%" }}
                             ></div>
                         </div>
-                        <span className="font-xs text-heading"> Sold: 90/120</span>
+                        <span className="font-xs text-heading"> Đã bán: {product.totalSell}/{product.stock}</span>
                     </div>
 
                     <a

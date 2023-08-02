@@ -18,38 +18,35 @@ function Login() {
                                     <div className="login_wrap widget-taber-content background-white">
                                         <div className="padding_eight_all bg-white">
                                             <div className="heading_s1">
-                                                <h1 className="mb-5">Login</h1>
-                                                <p className="mb-30">Don't have an account? <Link href="/page-register"><a>Create here</a></Link></p>
+                                                <p className="mb-30">Bạn đã có tài khoản rồi <Link href="/page-login"><a>Đăng nhập</a></Link></p>
                                             </div>
                                             <form method="post">
                                                 <div className="form-group">
-                                                    <input type="text" required="" name="email" placeholder="Username or Email *" />
+                                                    <input type="text" required="" name="name" placeholder="Tên của bạn" />
+                                                </div>
+
+                                                <div className="form-group">
+                                                    <input type="text" required="" name="email" placeholder="Tên tài khoản hoặc email" />
                                                 </div>
                                                 <div className="form-group">
-                                                    <input required="" type="password" name="password" placeholder="Your password *" />
+                                                    <input required="" type="password" name="password" placeholder="Mật khẩu" />
                                                 </div>
-                                                <div className="login_footer form-group">
-                                                    <div className="chek-form">
-                                                        <input type="text" required="" name="email" placeholder="Security code *" />
-                                                    </div>
-                                                    <span className="security-code">
-                                                        <b className="text-new">8</b>
-                                                        <b className="text-hot">6</b>
-                                                        <b className="text-sale">7</b>
-                                                        <b className="text-best">5</b>
-                                                    </span>
+                                                <div className="form-group">
+                                                    <input required="" type="password" name="re-password" placeholder="Nhập lại mật khẩu" />
+                                                </div>
+                                                <div className="form-group">
+                                                    <input type="number" required="" name="phone-number" placeholder="Số điện thoại" />
                                                 </div>
                                                 <div className="login_footer form-group mb-50">
                                                     <div className="chek-form">
                                                         <div className="custome-checkbox">
                                                             <input className="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox1" value="" />
-                                                            <label className="form-check-label" htmlFor="exampleCheckbox1"><span>Remember me</span></label>
+                                                            <label className="form-check-label" htmlFor="exampleCheckbox1"><span>Ghi nhớ tôi</span></label>
                                                         </div>
                                                     </div>
-                                                    <a className="text-muted" href="#">Forgot password?</a>
                                                 </div>
                                                 <div className="form-group">
-                                                    <button type="submit" className="btn btn-heading btn-block hover-up" name="login">Log in</button>
+                                                    <button type="submit" className="btn btn-heading btn-block hover-up" name="login">Đăng ký</button>
                                                 </div>
                                             </form>
                                         </div>

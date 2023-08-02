@@ -1,15 +1,27 @@
-import * as mongoose from 'mongoose';
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { User } from '../../users/schemas/user.schema';
+import * as mongoose from "mongoose";
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { User } from "../../users/schemas/user.schema";
 
 export type ProductDocument = Product & mongoose.Document;
+export interface Image {
+  img: string;
+}
+export interface Gallery {
+  thumb: string;
+}
 
+export interface Discount {
+  banner : string;
+  percentage : number;
+  expireDate : Date;
+  isActive : boolean;
+}
 @Schema({ timestamps: true })
 export class Review {
   @Prop({
     type: mongoose.Schema.Types.ObjectId,
     required: true,
-    ref: 'User',
+    ref: "User",
     default: null,
   })
   user: User;
@@ -27,7 +39,13 @@ export class Review {
 @Schema({ timestamps: true })
 export class Product {
   @Prop({ required: true })
-  name: string;
+  title: string;
+
+  @Prop({ required: true })
+  slug: string;
+
+  @Prop()
+  moreLove: boolean;
 
   @Prop({ required: true })
   brand: string;
@@ -35,16 +53,25 @@ export class Product {
   @Prop({ required: true })
   category: string;
 
-  @Prop({ require: true })
-  image: string;
+  @Prop({ required: true, type: [] })
+  images: Image[];
 
+  @Prop({ required: true, type: [] })
+  gallery: Gallery[];
+
+  @Prop({type : []})
+  discount : Discount[];
+  
   @Prop({ required: true })
-  description: string;
+  desc: string;
+
+  @Prop()
+  condition: string;
 
   @Prop({ required: true })
   reviews: Review[];
 
-  @Prop({ required: true, default: 0 })
+  @Prop({ default: 0 })
   rating: number;
 
   @Prop({ required: true, default: 0 })
@@ -54,7 +81,25 @@ export class Product {
   price: number;
 
   @Prop({ required: true, default: 0 })
-  countInStock: number;
+  oldPrice: number;
+
+  @Prop({ required: true, default: 0 })
+  totalSell: number;
+
+  @Prop({ default: false })
+  featured : boolean;
+
+  @Prop({ default: false })
+  trending : boolean;
+
+  @Prop({ required: true, default: 0 })
+  stock: number;
+
+  @Prop({ required: true, default: 0 })
+  weight: number;
+
+  @Prop({ default: 0 })
+  ratingScore: number;
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);

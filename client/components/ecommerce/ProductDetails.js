@@ -11,6 +11,7 @@ import { addToWishlist } from "../../redux/action/wishlistAction";
 import ProductTab from "../elements/ProductTab";
 import RelatedSlider from "../sliders/Related";
 import ThumbSlider from "../sliders/Thumb";
+import { formattedPrice } from "../../util/util";
 
 const ProductDetails = ({
     product,
@@ -22,8 +23,8 @@ const ProductDetails = ({
     decreaseQuantity,
     quickView,
 }) => {
+
     const [quantity, setQuantity] = useState(1);
-    
 
     const handleCart = (product) => {
         addToCart(product);
@@ -42,7 +43,6 @@ const ProductDetails = ({
 
     const inCart = cartItems.find((cartItem) => cartItem.id === product.id);
 
-    console.log(inCart);
 
     return (
         <>
@@ -59,14 +59,14 @@ const ProductDetails = ({
                                             </span>
 
                                             <div className="product-image-slider">
-                                                <ThumbSlider product={product} />
+                                                <ThumbSlider product={product ? product : []} />
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-md-6 col-sm-12 col-xs-12">
                                         <div className="detail-info  pr-30 pl-30">
                                             <span className="stock-status out-stock"> Sale Off </span>
-                                            <h2 className="title-detail">{product.title}</h2>
+                                            <h2 className="title-detail">{product?.title}</h2>
                                             <div className="product-detail-rating">
                                                 <div className="product-rate-cover text-end">
                                                     <div className="product-rate d-inline-block">
@@ -77,46 +77,18 @@ const ProductDetails = ({
                                             </div>
                                             <div className="clearfix product-price-cover">
                                                 <div className="product-price primary-color float-left">
-                                                    <span className="current-price  text-brand">${product.price}</span>
+                                                    <span className="current-price  text-brand">{formattedPrice(product?.price)}</span>
                                                     <span>
-                                                        <span className="save-price font-md color3 ml-15">{product.discount.percentage}% Off</span>
-                                                        <span className="old-price font-md ml-15">{product.oldPrice ? `$ ${product.oldPrice}` : null}</span>
+                                                        <span className="save-price font-md color3 ml-15">{product?.discount[0]?.percentage}% Off</span>
+                                                        <span className="old-price font-md ml-15">{product?.oldPrice ? `${formattedPrice(product?.oldPrice)}` : null}</span>
                                                     </span>
                                                 </div>
                                             </div>
 
                                             <div className="short-desc mb-30">
-                                                <p className="font-lg">{product.desc}</p>
+                                                <p className="font-lg">{product?.desc}</p>
                                             </div>
-                                            <div className="attr-detail attr-color mb-15">
-                                                <strong className="mr-10">Color</strong>
-                                                <ul className="list-filter color-filter">
-                                                    {product.variations.map((clr, i) => (
-                                                        <li key={i}>
-                                                            <a href="#">
-                                                                <span className={`product-color-${clr}`}></span>
-                                                            </a>
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                            <div className="attr-detail attr-size">
-                                                <strong className="mr-10">Size</strong>
-                                                <ul className="list-filter size-filter font-small">
-                                                    <li className="active">
-                                                        <a>M</a>
-                                                    </li>
-                                                    <li>
-                                                        <a>L</a>
-                                                    </li>
-                                                    <li>
-                                                        <a>XL</a>
-                                                    </li>
-                                                    <li>
-                                                        <a>XXL</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                            
                                             <div className="bt-1 border-color-1 mt-30 mb-30"></div>
                                             <div className="detail-extralink">
                                                 <div className="detail-qty border radius">
@@ -124,7 +96,7 @@ const ProductDetails = ({
                                                         <i className="fi-rs-angle-small-down"></i>
                                                     </a>
                                                     <span className="qty-val">{inCart?.quantity || quantity}</span>
-                                                    <a onClick={() => (!inCart ? setQuantity(quantity + 1) : increaseQuantity(product.id))} className="qty-up">
+                                                    <a onClick={() => (!inCart ? setQuantity(quantity + 1) : increaseQuantity(product?.id))} className="qty-up">
                                                         <i className="fi-rs-angle-small-up"></i>
                                                     </a>
                                                 </div>
@@ -138,7 +110,7 @@ const ProductDetails = ({
                                                         }
                                                         className="button button-add-to-cart"
                                                     >
-                                                        Add to cart
+                                                        Thêm vào giỏ hàng
                                                     </button>
                                                     <a aria-label="Add To Wishlist" className="action-btn hover-up" onClick={(e) => handleWishlist(product)}>
                                                         <i className="fi-rs-heart"></i>
@@ -156,12 +128,12 @@ const ProductDetails = ({
                                                 <li className="mb-5">
                                                     Tags:
                                                     <a href="#" rel="tag" className="me-1">
-                                                        Cloth,
+                                                        {product.category}
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    Availability:
-                                                    <span className="in-stock text-success ml-5">{product.stock} Items In Stock</span>
+                                                    Số lượng:
+                                                    <span className="in-stock text-success ml-5">{product?.stock} Sản phẩm còn lại</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -170,10 +142,10 @@ const ProductDetails = ({
 
                                 {quickView ? null : (
                                     <>
-                                        <ProductTab />
+                                        <ProductTab product={product}/>
                                         <div className="row mt-60">
                                             <div className="col-12">
-                                                <h3 className="section-title style-1 mb-30">Related products</h3>
+                                                <h3 className="section-title style-1 mb-30">Sản phẩm tương tự</h3>
                                             </div>
                                             <div className="col-12">
                                                 <div className="row related-products position-relative">

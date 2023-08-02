@@ -18,15 +18,15 @@ export class CartController {
   constructor(private cartService: CartService) {}
 
   @Post()
-  addToCart(@Body() body: AddToCartDto, @Session() session: any) {
-    this.cartService.cart = session.cart ? session.cart : defaultCart;
-
-    const cartItem = this.cartService.addCartItem({ ...body });
-
-    session.cart = this.cartService.cart;
-
-    return cartItem;
-  }
+  // addToCart(@Body() body: AddToCartDto, @Session() session: any) {
+  //   this.cartService.cart = session.cart ? session.cart : defaultCart;
+  //
+  //   const cartItem = this.cartService.addCartItem({ ...body });
+  //
+  //   session.cart = this.cartService.cart;
+  //
+  //   return cartItem;
+  // }
 
   @Post('shipping')
   saveShipping(@Body() body: SaveShippingDetailsDto, @Session() session: any) {

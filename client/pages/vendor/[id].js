@@ -34,7 +34,7 @@ const Products = ({ products, productFilters, fetchProduct }) => {
     const { id } = Router.query;
 
     useEffect(() => {
-        fetchProduct(searchTerm, "/static/product.json", productFilters);
+        fetchProduct(searchTerm, `${server}/products`, productFilters);
         setSingleStore(data.find((data) => data.id == id));
         cratePagination();
     }, [productFilters, limit, pages, products.items.length, id]);

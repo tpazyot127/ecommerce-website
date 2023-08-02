@@ -9,28 +9,29 @@ import TrendingSlider from "../sliders/Trending";
 function FeatchTabSlider() {
     const [active, setActive] = useState("1");
     const [featured, setFeatured] = useState([]);
+
     const [trending, setTrending] = useState([]);
     const [newArrival, setNewArrival] = useState([]);
 
     const featuredProduct = async () => {
-        const request = await fetch(`${server}/static/product.json`);
+        const request = await fetch(`${server}/products`);
         const allProducts = await request.json();
-        const featuedItem = allProducts.filter((item) => item.featured);
+        const featuedItem = await allProducts?.products?.filter((item) => item);
         setFeatured(featuedItem);
         setActive("1");
     };
 
     const trendingProduct = async () => {
-        const request = await fetch(`${server}/static/product.json`);
+        const request = await fetch(`${server}/products`);
         const allProducts = await request.json();
-        const trendingItem = allProducts.filter((item) => item.trending);
+        const trendingItem = allProducts?.products?.filter((item) => item);
         setTrending(trendingItem);
         setActive("2");
     };
     const newArrivalProduct = async () => {
-        const request = await fetch(`${server}/static/product.json`);
+        const request = await fetch(`${server}/products`);
         const allProducts = await request.json();
-        const newArrivalItem = allProducts.sort(function (a, b) {
+        const newArrivalItem = allProducts?.products?.sort(function (a, b) {
             return a.created > b.created ? -1 : 1;
         });
         setNewArrival(newArrivalItem);
@@ -44,36 +45,18 @@ function FeatchTabSlider() {
     return (
         <>
             <div className="section-title wow animate__animated animate__fadeIn">
-                <h3 className="">Daily Best Sells</h3>
-
-                <ul className="nav nav-tabs links" id="myTab-1" role="tablist">
-                    <li className="nav-item" role="presentation">
-                        <button className={active === "1" ? "nav-link active" : "nav-link"} onClick={featuredProduct}>
-                            Featured
-                        </button>
-                    </li>
-                    <li className="nav-item" role="presentation">
-                        <button className={active === "2" ? "nav-link active" : "nav-link"} onClick={trendingProduct}>
-                            Popular
-                        </button>
-                    </li>
-                    <li className="nav-item" role="presentation">
-                        <button className={active === "3" ? "nav-link active" : "nav-link"} onClick={newArrivalProduct}>
-                            New added
-                        </button>
-                    </li>
-                </ul>
+                <h3 className="">Sản phẩm bán chạy trong ngày</h3>
             </div>
 
             <div className="row">
                 <div className="col-lg-3 d-none d-lg-flex wow animate__animated animate__fadeIn">
                     <div className="banner-img style-2">
                         <div className="banner-text">
-                            <h2 className="mb-100">Bring nature into your home</h2>
+                            <h2 className="mb-100">Sản phẩm tự nhiên dành cho bạn</h2>
 
                             <Link href="/products">
-                                <a className="btn btn-xs">
-                                    Shop Now <i className="fi-rs-arrow-small-right"></i>
+                                <a className="btn btn-l">
+                                    Mua ngay <i className="fi-rs-arrow-small-right"></i>
                                 </a>
                             </Link>
                         </div>

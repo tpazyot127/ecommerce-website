@@ -1,7 +1,8 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-
+import {server} from "../../config/index";
 import { fetchByCatagory } from "../../redux/action/product";
+import { formattedPrice } from "../../util/util";
 
 const TrendingSlider = () => {
 
@@ -14,7 +15,7 @@ const TrendingSlider = () => {
     const fetchProducts = async () => {
 
         // With Category
-        const allProducts = await fetchByCatagory("/static/product.json");
+        const allProducts = await fetchByCatagory(`${server}/products`);
 
         const trendingItem = allProducts.filter((item) => item.trending);
         setTrending(trendingItem);
@@ -41,8 +42,8 @@ const TrendingSlider = () => {
                             <span className="font-small ml-5 text-muted"> (4.0)</span>
                         </div>
                         <div className="product-price">
-                            <span>${product.price} </span>
-                            <span className="old-price">{product.oldPrice && `$ ${product.oldPrice}`}</span>
+                            <span>{formattedPrice(product.price)}</span>
+                            <span className="old-price">{product.oldPrice && `${formattedPrice(product.oldPrice)}`}</span>
                         </div>
                     </div>
                 </article>

@@ -44,11 +44,23 @@ export class ProductsController {
     return this.productsService.deleteOne(id);
   }
 
-  @UseGuards(AdminGuard)
-  @Post()
-  createProduct() {
-    return this.productsService.createSample();
+  @Post('create')
+  createProduct(
+    @Body() body : any
+  ) {
+    console.log('body', body);
+    return this.productsService.create(body);
   }
+
+  @Post('createMany')
+  createProducts(
+    @Body() products: any
+  ) {
+    console.log('products---------------', products);
+    
+    return this.productsService.createMany(products);
+  }
+
 
   @UseGuards(AdminGuard)
   @Put(':id')

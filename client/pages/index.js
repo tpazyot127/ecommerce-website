@@ -13,6 +13,7 @@ import Intro1 from "./../components/sliders/Intro1";
 import Link from "next/link";
 
 export default function Home() {
+
     return (
         <>
             <IntroPopup />
@@ -26,11 +27,11 @@ export default function Home() {
                     </div>
                 </section>
 
-                <section className="popular-categories section-padding">
+                {/* <section className="popular-categories section-padding">
                     <div className="container wow animate__fadeIn animate__animated">
                         <div className="section-title">
                             <div className="title">
-                                <h3>Featured Categories</h3>
+                                <h3>Danh mục đặc sắc</h3>
                                 <ul className="list-inline nav nav-tabs links">
                                     <li className="list-inline-item nav-item">
                                         <Link href="/products">
@@ -61,7 +62,7 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 <section className="banners mb-25">
                     <div className="container">
@@ -88,7 +89,7 @@ export default function Home() {
                 <section className="section-padding pb-5">
                     <div className="container">
                         <div className="section-title wow animate__animated animate__fadeIn" data-wow-delay="0">
-                            <h3 className="">Deals Of The Day</h3>
+                            <h3 className="">Ưu đãi trong ngày</h3>
                             <Link href="/products">
                                 <a className="show-all">
                                     All Deals

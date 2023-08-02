@@ -48,11 +48,11 @@ const Banner5 = () => {
                     <img src="/assets/imgs/banner/banner-3.png" alt="" />
                     <div className="banner-text">
                         <h4>
-                            The best Organic <br />
-                            Products Online
+                            Nông sản sạch <br />
+                            63 tỉnh thành
                         </h4>
                         <Link href="/products"><a className="btn btn-xs">
-                            Shop Now <i className="fi-rs-arrow-small-right"></i>
+                            Mua ngay <i className="fi-rs-arrow-small-right"></i>
                         </a></Link>
                     </div>
                 </div>

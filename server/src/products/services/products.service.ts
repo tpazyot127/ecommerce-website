@@ -31,7 +31,7 @@ export class ProductsService {
     keyword?: string,
     pageId?: string
   ): Promise<PaginatedProducts> {
-    const pageSize = 2;
+    const pageSize = 20;
     const page = parseInt(pageId) || 1;
 
     const rgex = keyword ? { name: { $regex: keyword, $options: 'i' } } : {};
@@ -42,6 +42,8 @@ export class ProductsService {
       .limit(pageSize)
       .skip(pageSize * (page - 1));
 
+    console.log('products', products);
+    
     if (!products.length) throw new NotFoundException('No products found.');
 
     return { products, page, pages: Math.ceil(count / pageSize) };
@@ -66,8 +68,8 @@ export class ProductsService {
     return createdProducts;
   }
 
-  async createSample(): Promise<ProductDocument> {
-    const createdProduct = await this.productModel.create(sampleProduct);
+  async create(product: Partial<ProductDocument>): Promise<ProductDocument> {
+    const createdProduct = await this.productModel.create(product);
 
     return createdProduct;
   }
@@ -76,7 +78,7 @@ export class ProductsService {
     id: string,
     attrs: Partial<ProductDocument>
   ): Promise<ProductDocument> {
-    const { name, price, description, image, brand, category, countInStock } =
+    const { title, price, desc, images, brand, category, stock  } =
       attrs;
 
     if (!Types.ObjectId.isValid(id))
@@ -86,13 +88,13 @@ export class ProductsService {
 
     if (!product) throw new NotFoundException('No product with given ID.');
 
-    product.name = name;
+    product.title = title;
     product.price = price;
-    product.description = description;
-    product.image = image;
+    product.desc = desc; 
+    product.images = images;
     product.brand = brand;
     product.category = category;
-    product.countInStock = countInStock;
+    product.stock = stock;
 
     const updatedProduct = await product.save();
 

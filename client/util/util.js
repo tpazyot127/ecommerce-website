@@ -14,3 +14,7 @@ export const deleteProduct = (list, id) => {
     return index;
   };
   
+export const formattedPrice = (price) => {
+  return price.toLocaleString('en-US', { style: 'currency', currency: 'VND' });
+}
+ 

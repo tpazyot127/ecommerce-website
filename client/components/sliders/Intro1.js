@@ -28,17 +28,17 @@ const Intro1 = () => {
                     >
                         <div className="slider-content">
                             <h1 className="display-2 mb-40">
-                                Don’t miss amazing
+                                Đừng bỏ lỡ
                                 <br />
-                                grocery deals
+                                Deals sốc
                             </h1>
                             <p className="mb-65">
-                                Sign up for the daily newsletter
+                                Đăng nhập để nhận thông tin mới nhất    
                             </p>
                             <form className="form-subcriber d-flex">
                                 <input
                                     type="email"
-                                    placeholder="Your emaill address"
+                                    placeholder="Nhập email của bạn "
                                 />
                                 <button className="btn" type="submit">
                                     Subscribe
@@ -57,17 +57,17 @@ const Intro1 = () => {
                     >
                         <div className="slider-content">
                             <h1 className="display-2 mb-40">
-                                Fresh Vegetables
+                                Rau củ sạch
                                 <br />
-                                Big discount
+                                Giá ưu đãi nhất
                             </h1>
                             <p className="mb-65">
-                                Save up to 50% off on your first order
+                                Giảm giá 50% cho đơn hàng đầu tiên
                             </p>
                             <form className="form-subcriber d-flex">
                                 <input
                                     type="email"
-                                    placeholder="Your emaill address"
+                                    placeholder="Nhập email của bạn "
                                 />
                                 <button className="btn" type="submit">
                                     Subscribe

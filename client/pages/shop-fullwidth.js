@@ -10,6 +10,7 @@ import SortSelect from "./../components/ecommerce/Filter/SortSelect";
 import WishlistModal from "./../components/ecommerce/WishlistModal";
 import Layout from "./../components/layout/Layout";
 import { fetchProduct } from "./../redux/action/product";
+import { server } from "../config/index";
 
 const ProductsFullWidth = ({ products, productFilters, fetchProduct }) => {
     // console.log(products);
@@ -25,7 +26,7 @@ const ProductsFullWidth = ({ products, productFilters, fetchProduct }) => {
     let [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
-        fetchProduct(searchTerm, "/static/product.json", productFilters);
+        fetchProduct(searchTerm, `${server}/products`, productFilters);
         cratePagination();
     }, [productFilters, limit, pages, products.items.length]);
 

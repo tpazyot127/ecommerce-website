@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-const ProductTab = () => {
+const ProductTab = ({product}) => {
+    console.log('product-details', product);
     const [activeIndex, setActiveIndex] = useState(1);
 
     const handleOnClick = (index) => {
@@ -13,17 +14,12 @@ const ProductTab = () => {
                 <ul className="nav nav-tabs text-uppercase">
                     <li className="nav-item">
                         <a className={activeIndex === 1 ? "nav-link active" : "nav-link"} id="Description-tab" data-bs-toggle="tab" onClick={() => handleOnClick(1)}>
-                            Description
+                            Mô tả
                         </a>
                     </li>
                     <li className="nav-item">
                         <a className={activeIndex === 2 ? "nav-link active" : "nav-link"} id="Additional-info-tab" data-bs-toggle="tab" onClick={() => handleOnClick(2)}>
-                            Additional info
-                        </a>
-                    </li>
-                    <li className="nav-item">
-                        <a className={activeIndex === 3 ? "nav-link active" : "nav-link"} id="Reviews-tab" data-bs-toggle="tab" onClick={() => handleOnClick(3)}>
-                            Vendor
+                            Thông tin
                         </a>
                     </li>
                     <li className="nav-item">
@@ -35,23 +31,13 @@ const ProductTab = () => {
                 <div className="tab-content shop_info_tab entry-main-content">
                     <div className={activeIndex === 1 ? "tab-pane fade show active" : "tab-pane fade"} id="Description">
                         <div className="">
-                            <p>Uninhibited carnally hired played in whimpered dear gorilla koala depending and much yikes off far quetzal goodness and from for grimaced goodness unaccountably and meadowlark near unblushingly crucial scallop tightly neurotic hungrily some and dear furiously this apart.</p>
-                            <p>Spluttered narrowly yikes left moth in yikes bowed this that grizzly much hello on spoon-fed that alas rethought much decently richly and wow against the frequent fluidly at formidable acceptably flapped besides and much circa far over the bucolically hey precarious goldfinch mastodon goodness gnashed a jellyfish and one however because.</p>
+                           <p>{product.desc}</p>
                             <ul className="product-more-infor mt-30">
                                 <li>
-                                    <span>Type Of Packing</span> Bottle
+                                    <span>Mặt hàng</span> {product.slug}
                                 </li>
                                 <li>
-                                    <span>Color</span> Green, Pink, Powder Blue, Purple
-                                </li>
-                                <li>
-                                    <span>Quantity Per Case</span> 100ml
-                                </li>
-                                <li>
-                                    <span>Ethyl Alcohol</span> 70%
-                                </li>
-                                <li>
-                                    <span>Piece In One</span> Carton
+                                    <span>Khối lượng</span> {product.weight} G
                                 </li>
                             </ul>
                             <hr className="wp-block-separator is-style-dots" />

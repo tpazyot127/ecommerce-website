@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 SwiperCore.use([Navigation, Thumbs]);
 
 const ThumbSlider = ({ product }) => {
+    console.log('product------------------------------', product.gallery)
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
     return (
@@ -18,12 +19,12 @@ const ThumbSlider = ({ product }) => {
                 
                 spaceBetween={10}
                 navigation={true}
-                thumbs={{ swiper: thumbsSwiper }}
+                thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
                 className="mySwiper2"
             >
-                {product.gallery.map((item) => (
+                {product && product.gallery ? product?.gallery?.map((item) => (
                     <SwiperSlide>
-                        <img src={item.thumb} />
+                        <img src={item.thumb ? item.thumb : ""} />
                         {/* <Zoom
                             img={item.thumb}
                             zoomScale={5}
@@ -32,22 +33,21 @@ const ThumbSlider = ({ product }) => {
                             ransitionTime={0.5}
                         /> */}
                     </SwiperSlide>
-                ))}
+                )) : null}
             </Swiper>
             <Swiper
                 onSwiper={setThumbsSwiper}
-                
-                spaceBetween={10}
+                spaceBetween={15}
                 slidesPerView={4}
                 freeMode={true}
                 watchSlidesProgress={true}
                 className="mySwiper"
             >
-                {product.gallery.map((item) => (
+                {product && product.gallery ?  product?.gallery?.map((item) => (
                     <SwiperSlide>
-                        <img src={item.thumb} />
+                        <img src={item.thumb ? item.thumb : ""} />
                     </SwiperSlide>
-                ))}
+                )) : null}
             </Swiper>
         </div>
     );

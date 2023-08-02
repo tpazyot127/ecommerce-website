@@ -6,12 +6,15 @@
   "scripts": {
     "start:server": "npm run start:dev --prefix server",
     "start:client": "npm run dev --prefix client",
-    "start-all": "concurrently \"cd client && yarn dev\" \"cd server && yarn start:dev\"",
+    "start": "concurrently \"cd client && yarn dev\" \"cd server && yarn start:dev\"",
     "install-all": "concurrently \"cd server && yarn install\" \"cd client && yarn install\""
   },
   "author": "Edward Do <tpazyot127@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "concurrently": "^7.0.0"
+  },
+  "dependencies": {
+    "connect-redis": "^7.1.0"
   }
 }

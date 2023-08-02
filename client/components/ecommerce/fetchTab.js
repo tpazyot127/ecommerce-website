@@ -12,24 +12,24 @@ function FeatchTab() {
     const [newArrival, setNewArrival] = useState([]);
 
     const featuredProduct = async () => {
-        const request = await fetch(`${server}/static/product.json`);
-        const allProducts = await request.json();
-        const featuedItem = allProducts.filter((item) => item.featured);
+        const request = await fetch(`${server}/products`);
+        const allProducts = await request.products;
+        const featuedItem = allProducts?.products?.filter((item) => item.featured);
         setFeatured(featuedItem);
         setActive("1");
     };
 
     const trendingProduct = async () => {
-        const request = await fetch(`${server}/static/product.json`);
+        const request = await fetch(`${server}/products`);
         const allProducts = await request.json();
-        const trendingItem = allProducts.filter((item) => item.trending);
+        const trendingItem = allProducts?.products?.filter((item) => item.trending);
         setTrending(trendingItem);
         setActive("2");
     };
     const newArrivalProduct = async () => {
-        const request = await fetch(`${server}/static/product.json`);
+        const request = await fetch(`${server}/products`);
         const allProducts = await request.json();
-        const newArrivalItem = allProducts.sort(function (a, b) {
+        const newArrivalItem = allProducts?.products?.sort(function (a, b) {
             return a.created > b.created ? -1 : 1;
         });
         setNewArrival(newArrivalItem);
@@ -43,7 +43,7 @@ function FeatchTab() {
     return (
         <>
             <div className="section-title style-2 wow animate__animated animate__fadeIn">
-                <h3>Popular Products</h3>
+                <h3>Sản phẩm phổ biến</h3>
                 <ul className="nav nav-tabs links" id="myTab" role="tablist">
                     <li className="nav-item" role="presentation">
                         <button

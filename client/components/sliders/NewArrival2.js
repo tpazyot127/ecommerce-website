@@ -2,6 +2,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import SwiperCore, { Navigation } from "swiper";
 import { server } from "../../config/index";
+import { formattedPrice } from "../../util/util";
 
 SwiperCore.use([Navigation]);
 
@@ -12,12 +13,12 @@ const NewArrival2 = () => {
         fetchProducts();
     }, []);
 
-    const fetchProducts = async () => {
+    const   fetchProducts = async () => {
         // With Category
-        const request = await fetch(`${server}/static/product.json`);
+        const request = await fetch(`${server}/products`);
         const allProducts = await request.json();
 
-        const newArrivalProducts = allProducts.sort(function (a, b) {
+        const newArrivalProducts = allProducts?.products?.sort(function (a, b) {
             return a.created > b.created ? -1 : 1;
         });
 
@@ -48,8 +49,8 @@ const NewArrival2 = () => {
                             <span className="font-small ml-5 text-muted"> (4.0)</span>
                         </div>
                         <div className="product-price">
-                            <span>${product.price} </span>
-                            <span className="old-price">{product.oldPrice && `$ ${product.oldPrice}`}</span>
+                            <span>{formattedPrice(product.price)} </span>
+                            <span className="old-price">{product.oldPrice && `${ formattedPrice(product.oldPrice)}`}</span>
                         </div>
                     </div>
                 </article>

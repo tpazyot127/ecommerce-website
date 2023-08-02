@@ -2,6 +2,8 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import SwiperCore, { Navigation } from "swiper";
 import { fetchByCatagory } from "../../redux/action/product";
+import {server} from "../../config/index";
+import { formattedPrice } from "../../util/util";
 
 SwiperCore.use([Navigation]);
 
@@ -16,11 +18,11 @@ const TopRatedSlider = () => {
 
     const fetchProducts = async () => {
         // With Category
-        const allProducts = await fetchByCatagory("/static/product.json");
+        const allProducts = await fetchByCatagory(`${server}/products`);
 
         // Discount
-        const discountProduct = allProducts.filter(
-            (item) => item.discount.isActive
+        const discountProduct = allProducts?.filter(
+            (item) => item.discount[0].isActive
         );
 
         setDiscount(discountProduct);
@@ -42,11 +44,11 @@ const TopRatedSlider = () => {
                             <div className="product-rate d-inline-block">
                                 <div className="product-rating" style={{ "width": "90%" }}></div>
                             </div>
-                            <span className="font-small ml-5 text-muted"> (4.0)</span>
+                            <span className="font-small ml-5 text-muted">({product.rating})</span>
                         </div>
                         <div className="product-price">
-                            <span>${product.price} </span>
-                            <span className="old-price">{product.oldPrice && `$ ${product.oldPrice}`}</span>
+                            <span>{formattedPrice(product.price)} </span>
+                            <span className="old-price">{product.oldPrice && `$ ${formattedPrice(product.oldPrice)}`}</span>
                         </div>
                     </div>
                 </article>

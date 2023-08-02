@@ -9,7 +9,8 @@ export const connectDB = (
   const dbPassword = configService.get<string>('MONGODB_PASSWORD');
   const dbName = configService.get<string>('MONGODB_DATABASE_NAME');
   
-  const mongodbUri = `mongodb+srv://ocop:tuananh127@cluster0.zud7h.mongodb.net/?retryWrites=true&w=majority`;
+  const mongodbUri = `mongodb+srv://${dbName}:${dbPassword}@cluster0.zud7h.mongodb.net/?retryWrites=true&w=majority`;
+
   return {
     uri: mongodbUri,
     autoIndex: false,

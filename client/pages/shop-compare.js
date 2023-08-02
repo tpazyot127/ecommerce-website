@@ -5,6 +5,8 @@ import Layout from "../components/layout/Layout";
 import { clearCompare, deleteFromCompare } from "../redux/action/compareAction";
 
 const Compare = ({ compare, clearCompare, deleteFromCompare }) => {
+
+    console.log('compare', compare);
     return (
         <>
             <Layout parent="Home" sub="Shop" subChild="Compare">
@@ -13,7 +15,7 @@ const Compare = ({ compare, clearCompare, deleteFromCompare }) => {
                         <div className="row">
                             <div className="col-xl-10 col-lg-12 m-auto">
                                 <h1 className="heading-2 mb-10">
-                                    Products Compare
+                                    So sánh sản phẩm
                                 </h1>
                                 <h6 className="text-body mb-40">
                                     There are <span className="text-brand">3</span>
@@ -47,12 +49,12 @@ const Compare = ({ compare, clearCompare, deleteFromCompare }) => {
                                                     className="clear-btn"
                                                     onClick={clearCompare}
                                                 >
-                                                    Clear All
+                                                    Xoá tất cả
                                                 </span>
                                             </div>
                                         </>
                                     ) : (
-                                        <h4>No Products</h4>
+                                        <h4>Chưa có sản phẩm</h4>
                                     )}
                                 </div>
                             </div>

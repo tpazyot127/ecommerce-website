@@ -1,6 +1,8 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { fetchByCatagory } from "../../redux/action/product";
+import { formattedPrice } from "../../util/util";
+import { server } from "../../config/index";
 
 const BestSellerSlider = () => {
     const [bestSeller, setBestSeller] = useState([]);
@@ -11,8 +13,7 @@ const BestSellerSlider = () => {
 
     const fetchProducts = async () => {
         // With Category
-        const allProducts = await fetchByCatagory("/static/product.json");
-
+        const allProducts = await fetchByCatagory(`${server}/products`);
         // Best Seller
         const bestSellerProducts = allProducts.sort(function (a, b) {
             return a.totalSell > b.totalSell ? -1 : 1;
@@ -45,8 +46,8 @@ const BestSellerSlider = () => {
                             <span className="font-small ml-5 text-muted"> (4.0)</span>
                         </div>
                         <div className="product-price">
-                            <span>${product.price} </span>
-                            <span className="old-price">{product.oldPrice && `$ ${product.oldPrice}`}</span>
+                            <span>{formattedPrice(product.price)} </span>
+                            <span className="old-price">{product.oldPrice && `${formattedPrice(product.oldPrice)}`}</span>
                         </div>
                     </div>
                 </article>

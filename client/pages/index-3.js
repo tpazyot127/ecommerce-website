@@ -32,7 +32,7 @@ function Test() {
 
                             <section className="section-padding pb-5">
                                 <div className="section-title" data-wow-delay="0">
-                                    <h3 className="">Deals Of The Day</h3>
+                                    <h3 className="">Ưu đãi trong ngày</h3>
                                     <Link href="/shop-grid-right"><a className="show-all">
                                 All Deals
                                 <i className="fi-rs-angle-right"></i>

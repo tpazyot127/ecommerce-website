@@ -1,12 +1,12 @@
 [
     {
-        "title": "Seeds of Change Organic Quinoa, Brown",
-        "slug": "seeds-of-change-organic-quinoe",
+        "title": "Yến Chưng",
+        "slug": "Yến Chưng",
         "moreLove": true,
         "id": "1",
-        "price": 238.85,
-        "oldPrice": 245.8,
-        "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi? Officia doloremque facere quia. Voluptatum, accusantium!",
+        "price": 100000,
+        "oldPrice": 80000,
+        "desc": "Yến thô nguyên tổ ngâm 20 phút, nhặt sạch lông bằng phương pháp thủ công. Yến tươi sau khi làm sạch chưng cùng các vị theo yêu cầu của khách.Không chất bảo quản, chưng theo yêu cầu của khách.Để ngăn mát tủ lạnh trong 10 ngày",
         "images": [
             {
                 "img": "/assets/imgs/shop/product-1-1.jpg"
@@ -15,7 +15,7 @@
                 "img": "/assets/imgs/shop/product-1-2.jpg"
             }
         ],
-        "totalSell": 27,
+        "totalSell": 0,
         "gallery": [
             {
                 "thumb": "/assets/imgs/shop/product-1-1.jpg"
@@ -28,10 +28,10 @@
             }
         ],
         "condition": "new",
-        "vendor": "nestFood",
+        "vendor": "OCOP",
         "color": "blue",
-        "brand": "armani",
-        "category": "clothing",
+        "brand": "OCOP",
+        "category": "yenchung",
         "featured": false,
         "trending": true,
         "discount": {
@@ -50,7 +50,7 @@
             "purple"
         ],
         "weight": 150,
-        "tags": "broccoli",
+        "tags": "yenchung",
         "sizes": "s",
         "stock": 0,
         "review": 10,

@@ -5,7 +5,7 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { AppService } from '../services/app.service';
+import { AppService } from './app.service';
 
 @Controller('')
 export class AppController {

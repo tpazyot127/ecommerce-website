@@ -12,19 +12,19 @@ const Footer = () => {
                                 <div className="position-relative newsletter-inner">
                                     <div className="newsletter-content">
                                         <h2 className="mb-20">
-                                            Stay home & get your daily <br />
-                                            needs from our shop
+                                            Giao tận tay  <br />
+                                            tới nhà của bạn
                                         </h2>
                                         <p className="mb-45">
-                                            Start You'r Daily Shopping with{" "}
+                                            Bắt đầu mua hàng với{" "}
                                             <span className="text-brand">
-                                                Nest Mart
+                                                OCOP
                                             </span>
                                         </p>
                                         <form className="form-subcriber d-flex">
                                             <input
                                                 type="email"
-                                                placeholder="Your emaill address"
+                                                placeholder="Địa chỉ email của bạn"
                                             />
                                             <button className="btn" type="submit">
                                                 Subscribe
@@ -56,9 +56,9 @@ const Footer = () => {
                                     </div>
                                     <div className="banner-text">
                                         <h3 className="icon-box-title">
-                                            Best prices & offers
+                                            Giá cả ưu đãi
                                         </h3>
-                                        <p>Orders $50 or more</p>
+                                        <p>Giảm giá hàng ngày</p>
                                     </div>
                                 </div>
                             </div>
@@ -75,9 +75,9 @@ const Footer = () => {
                                     </div>
                                     <div className="banner-text">
                                         <h3 className="icon-box-title">
-                                            Free delivery
+                                            Giao hàng miễn phí
                                         </h3>
-                                        <p>24/7 amazing services</p>
+                                        <p>Dịch vụ 24/7</p>
                                     </div>
                                 </div>
                             </div>
@@ -94,9 +94,9 @@ const Footer = () => {
                                     </div>
                                     <div className="banner-text">
                                         <h3 className="icon-box-title">
-                                            Great daily deal
+                                            Ưu đãi hàng ngày
                                         </h3>
-                                        <p>When you sign up</p>
+                                        <p>Khi bạn đăng ký</p>
                                     </div>
                                 </div>
                             </div>
@@ -113,9 +113,9 @@ const Footer = () => {
                                     </div>
                                     <div className="banner-text">
                                         <h3 className="icon-box-title">
-                                            Wide assortment
+                                            Kết nối nông sản
                                         </h3>
-                                        <p>Mega Discounts</p>
+                                        <p>Sản phẩm từ 63 tỉnh thành</p>
                                     </div>
                                 </div>
                             </div>
@@ -132,9 +132,9 @@ const Footer = () => {
                                     </div>
                                     <div className="banner-text">
                                         <h3 className="icon-box-title">
-                                            Easy returns
+                                            Chính sách hoàn trả
                                         </h3>
-                                        <p>Within 30 days</p>
+                                        <p>Hoàn trả và đổi trả</p>
                                     </div>
                                 </div>
                             </div>
@@ -176,10 +176,6 @@ const Footer = () => {
                                             />
                                         </a>
                                         </Link>
-                                        <p className="font-lg text-heading">
-                                            Awesome grocery store website
-                                            template
-                                        </p>
                                     </div>
                                     <ul className="contact-infor">
                                         <li>
@@ -187,10 +183,9 @@ const Footer = () => {
                                                 src="/assets/imgs/theme/icons/icon-location.svg"
                                                 alt=""
                                             />
-                                            <strong>Address: </strong>{" "}
+                                            <strong>Địa chỉ: </strong>{" "}
                                             <span>
-                                                5171 W Campbell Ave undefined
-                                                Kent, Utah 53127 United States
+                                            Số 14, phố Đại Linh, phường Trung Văn, quận Nam Từ Liêm, Thành phố Hà Nội
                                             </span>
                                         </li>
                                         <li>
@@ -198,8 +193,8 @@ const Footer = () => {
                                                 src="/assets/imgs/theme/icons/icon-contact.svg"
                                                 alt=""
                                             />
-                                            <strong>Call Us:</strong>
-                                            <span>(+91) - 540-025-124553</span>
+                                            <strong>Liên hệ</strong>
+                                            <span> 0947630606</span>
                                         </li>
                                         <li>
                                             <img
@@ -207,16 +202,19 @@ const Footer = () => {
                                                 alt=""
                                             />
                                             <strong>Email:</strong>
-                                            <span>sale@Nest.com</span>
+                                            <span>htx.nsv@gmail.com</span>
+                                            <br/>
+                                            <span>htx.nongsanvietnam@gmail.com</span>
+
                                         </li>
                                         <li>
                                             <img
                                                 src="/assets/imgs/theme/icons/icon-clock.svg"
                                                 alt=""
                                             />
-                                            <strong>Hours:</strong>
+                                            <strong>Hoạt động:</strong>
                                             <span>
-                                                10:00 - 18:00, Mon - Sat
+                                                10:00 - 18:00, Cả tuần
                                             </span>
                                         </li>
                                     </ul>
@@ -229,25 +227,22 @@ const Footer = () => {
                                 <h4 className="widget-title">Company</h4>
                                 <ul className="footer-list  mb-sm-5 mb-md-0">
                                     <li>
-                                        <a href="#">About Us</a>
+                                        <a href="#">Về chúng tôi</a>
                                     </li>
                                     <li>
-                                        <a href="#">Delivery Information</a>
+                                        <a href="#">Thông tin vận chuyển</a>
                                     </li>
                                     <li>
-                                        <a href="#">Privacy Policy</a>
+                                        <a href="#">Chính sách bảo mật</a>
                                     </li>
                                     <li>
-                                        <a href="#">Terms &amp; Conditions</a>
+                                        <a href="#">Điều khoản &amp; Điều kiện</a>
                                     </li>
                                     <li>
-                                        <a href="#">Contact Us</a>
+                                        <a href="#">Liên hệ chúng tôi</a>
                                     </li>
                                     <li>
-                                        <a href="#">Support Center</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Careers</a>
+                                        <a href="#">Zalo</a>
                                     </li>
                                 </ul>
                             </div>
@@ -258,25 +253,25 @@ const Footer = () => {
                                 <h4 className="widget-title ">Account</h4>
                                 <ul className="footer-list  mb-sm-5 mb-md-0">
                                     <li>
-                                        <a href="#">Sign In</a>
+                                        <a href="#">Đăng nhập</a>
                                     </li>
                                     <li>
-                                        <a href="#">View Cart</a>
+                                        <a href="#">Xem giỏ hàng</a>
                                     </li>
                                     <li>
-                                        <a href="#">My Wishlist</a>
+                                        <a href="#">Mục ưa thích</a>
                                     </li>
                                     <li>
-                                        <a href="#">Track My Order</a>
+                                        <a href="#">Theo dõi đơn hàng</a>
                                     </li>
                                     <li>
-                                        <a href="#">Help Ticket</a>
+                                        <a href="#">Hỗ trợ</a>
                                     </li>
                                     <li>
-                                        <a href="#">Shipping Details</a>
+                                        <a href="#">Thông tin vận chuyển</a>
                                     </li>
                                     <li>
-                                        <a href="#">Compare products</a>
+                                        <a href="#">So sánh sản phẩm</a>
                                     </li>
                                 </ul>
                             </div>
@@ -287,25 +282,19 @@ const Footer = () => {
                                 <h4 className="widget-title ">Corporate</h4>
                                 <ul className="footer-list  mb-sm-5 mb-md-0">
                                     <li>
-                                        <a href="#">Become a Vendor</a>
+                                        <a href="#">Trở thành nhà phân phối</a>
                                     </li>
                                     <li>
-                                        <a href="#">Affiliate Program</a>
+                                        <a href="#">Liên kết với OCOP</a>
                                     </li>
                                     <li>
-                                        <a href="#">Farm Business</a>
+                                        <a href="#">Nghiệp vụ nông sản</a>
                                     </li>
                                     <li>
-                                        <a href="#">Farm Careers</a>
+                                        <a href="#">Hỗ trợ nông sản</a>
                                     </li>
                                     <li>
-                                        <a href="#">Our Suppliers</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Accessibility</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Promotions</a>
+                                        <a href="#">Nhà cung cấp</a>
                                     </li>
                                 </ul>
                             </div>
@@ -342,26 +331,7 @@ const Footer = () => {
                                 className="footer-link-widget widget-install-app col  wow animate__animated animate__fadeInUp"
                                 data-wow-delay=".5s"
                             >
-                                <h4 className="widget-title ">Install App</h4>
-                                <p className="">From App Store or Google Play</p>
-                                <div className="download-app ">
-                                    <a
-                                        href="#"
-                                        className="hover-up mb-sm-2 mb-lg-0"
-                                    >
-                                        <img
-                                            className="active"
-                                            src="/assets/imgs/theme/app-store.jpg"
-                                            alt=""
-                                        />
-                                    </a>
-                                    <a href="#" className="hover-up mb-sm-2">
-                                        <img
-                                            src="/assets/imgs/theme/google-play.jpg"
-                                            alt=""
-                                        />
-                                    </a>
-                                </div>
+                                <h4 className="widget-title ">Thanh toán</h4>
                                 <p className="mb-20 ">Secured Payment Gateways</p>
                                 <img
                                     className=""
@@ -382,9 +352,8 @@ const Footer = () => {
                         </div>
                         <div className="col-xl-4 col-lg-6 col-md-6">
                             <p className="font-sm mb-0">
-                                &copy; 2021,{" "}
-                                <strong className="text-brand">Nest</strong> - HTML
-                                Ecommerce Template <br />
+                                &copy; 2023,{" "}
+                                <strong className="text-brand">OCOP</strong> - HỢP TÁC XÃ NÔNG SẢN VIỆT <br />
                                 All rights reserved
                             </p>
                         </div>
@@ -395,22 +364,13 @@ const Footer = () => {
                                     alt="hotline"
                                 />
                                 <p>
-                                    1900 - 6666<span>Working 8:00 - 22:00</span>
-                                </p>
-                            </div>
-                            <div className="hotline d-lg-inline-flex">
-                                <img
-                                    src="/assets/imgs/theme/icons/phone-call.svg"
-                                    alt="hotline"
-                                />
-                                <p>
-                                    1900 - 8888<span>24/7 Support Center</span>
+                                    0947630606<span>Từ 8:00 - 22:00</span>
                                 </p>
                             </div>
                         </div>
                         <div className="col-xl-4 col-lg-6 col-md-6 text-end d-none d-md-block">
                             <div className="mobile-social-icon">
-                                <h6>Follow Us</h6>
+                                <h6>Theo dõi chúng tôi</h6>
                                 <a href="#">
                                     <img
                                         src="/assets/imgs/theme/icons/icon-facebook-white.svg"
@@ -443,7 +403,7 @@ const Footer = () => {
                                 </a>
                             </div>
                             <p className="font-sm">
-                                Up to 15% discount on your first subscribe
+                                Giảm giá 15% cho lần đăng ký đầu tiên
                             </p>
                         </div>
                     </div>
