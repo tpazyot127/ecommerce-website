@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { server } from "../../config/index";
 import Cat1Tab from "../elements/FeaturedTab";
-import Cat2Tab from "../elements/NewArrivalTab";
-import Cat3Tab from "../elements/TrendingTab";
-import Link from "next/link";
-// import Preloader from "../elements/Preloader";
 import Cat1TabSkeleton from "../elements/Cat1TabSkeleton"; // import the skeleton component
 
 function CategoryTab() {
@@ -112,12 +108,12 @@ function CategoryTab() {
         >
           <div className="product-grid-4 row">
             {isLoading && catAll? (
-              <div className="tab-content wow fadeIn animated">
-                <div>
-                  {catAll?.map((item) => (
-                    <Cat1TabSkeleton key={item.id} />
+              <div className="skeleton">
+                  {Array(5).fill().map((_, index) => (
+                    <div style={{ paddingRight : '35px'}}>
+                      <Cat1TabSkeleton key={index} />
+                    </div>
                   ))}
-                </div>
               </div>
             ) : (
               <Cat1Tab products={catAll} />
@@ -132,12 +128,12 @@ function CategoryTab() {
         >
           <div className="product-grid-4 row">
             {isLoading && cat1? (
-              <div className="tab-content wow fadeIn animated">
-                <div>
-                  {cat1?.map((item) => (
-                    <Cat1TabSkeleton key={item.id} />
+              <div className="skeleton">
+                  {Array(5).fill().map((_, index) => (
+                    <div style={{ paddingRight : '35px'}}>
+                      <Cat1TabSkeleton key={index} />
+                    </div>
                   ))}
-                </div>
               </div>
             ) : (
               <Cat1Tab products={cat1} />
@@ -152,12 +148,12 @@ function CategoryTab() {
         >
           <div className="product-grid-4 row">
             {isLoading && cat2? (
-              <div className="tab-content wow fadeIn animated">
-                <div>
-                  {cat2?.map((item) => (
-                    <Cat1TabSkeleton key={item.id} />
+              <div className="skeleton">
+                  {Array(5).fill().map((_, index) => (
+                    <div style={{ paddingRight : '35px'}}>
+                      <Cat1TabSkeleton key={index} />
+                    </div>
                   ))}
-                </div>
               </div>
             ) : (
               <Cat1Tab products={cat2} />
@@ -172,12 +168,12 @@ function CategoryTab() {
         >
           <div className="product-grid-4 row">
             {isLoading && cat3 ? (
-              <div className="tab-content wow fadeIn animated">
-                <div>
-                  {cat3?.map((item) => (
-                    <Cat1TabSkeleton key={item.id} />
+              <div className="skeleton">
+                  {Array(5).fill().map((_, index) => (
+                    <div style={{ paddingRight : '35px'}}>
+                      <Cat1TabSkeleton key={index} />
+                    </div>
                   ))}
-                </div>
               </div>
             ) : (
               <Cat1Tab products={cat3} />

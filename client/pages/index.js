@@ -13,21 +13,20 @@ import Intro1 from "./../components/sliders/Intro1";
 import Link from "next/link";
 
 export default function Home() {
+  return (
+    <>
+      {/* <IntroPopup /> */}
 
-    return (
-        <>
-            <IntroPopup />
+      <Layout noBreadcrumb="d-none">
+        <section className="home-slider position-relative mb-30">
+          <div className="container">
+            <div className="home-slide-cover mt-30">
+              <Intro1 />
+            </div>
+          </div>
+        </section>
 
-            <Layout noBreadcrumb="d-none">
-                <section className="home-slider position-relative mb-30">
-                    <div className="container">
-                        <div className="home-slide-cover mt-30">
-                            <Intro1 />
-                        </div>
-                    </div>
-                </section>
-
-                {/* <section className="popular-categories section-padding">
+        {/* <section className="popular-categories section-padding">
                     <div className="container wow animate__fadeIn animate__animated">
                         <div className="section-title">
                             <div className="title">
@@ -64,47 +63,48 @@ export default function Home() {
                     </div>
                 </section> */}
 
-                <section className="banners mb-25">
-                    <div className="container">
-                        <div className="row">
-                            <Banner5 />
-                        </div>
-                    </div>
-                </section>
+        <section className="banners mb-25">
+          <div className="container">
+            <div className="row">{/* <Banner5 /> */}</div>
+          </div>
+        </section>
 
-                <section className="product-tabs section-padding position-relative">
-                    <div className="container">
-                        <div className="col-lg-12">
-                            <CategoryTab />
-                        </div>
-                    </div>
-                </section>
+        <section className="product-tabs section-padding position-relative">
+          <div className="container">
+            <div className="col-lg-12">
+              <CategoryTab />
+            </div>
+          </div>
+        </section>
 
-                <section className="section-padding pb-5">
-                    <div className="container">
-                        <FetchTabSlider />
-                    </div>
-                </section>
+        <section className="section-padding pb-5">
+          <div className="container">
+            <FetchTabSlider />
+          </div>
+        </section>
 
-                <section className="section-padding pb-5">
-                    <div className="container">
-                        <div className="section-title wow animate__animated animate__fadeIn" data-wow-delay="0">
-                            <h3 className="">Ưu đãi trong ngày</h3>
-                            <Link href="/products">
-                                <a className="show-all">
-                                    All Deals
-                                    <i className="fi-rs-angle-right"></i>
-                                </a>
-                            </Link>
-                        </div>
-                        <FeatchDeals />
-                    </div>
-                </section>
+        <section className="section-padding pb-5">
+          <div className="container">
+            <div
+              className="section-title wow animate__animated animate__fadeIn"
+              data-wow-delay="0"
+            >
+              <h3 className="">Ưu đãi trong ngày</h3>
+              <Link href="/products">
+                <a className="show-all">
+                  All Deals
+                  <i className="fi-rs-angle-right"></i>
+                </a>
+              </Link>
+            </div>
+            <FeatchDeals />
+          </div>
+        </section>
 
-                <Bottom />
+        <Bottom />
 
-                <QuickView />
-            </Layout>
-        </>
-    );
+        <QuickView />
+      </Layout>
+    </>
+  );
 }

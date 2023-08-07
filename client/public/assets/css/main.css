@@ -6447,6 +6447,8 @@ h6.post-title {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  height: 150px;
+  margin-top: -25px;
 }
 
 .header-wrap .header-right {
@@ -6468,8 +6470,16 @@ h6.post-title {
 
 .logo.logo-width-1 {
   margin-right: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 280px;
 }
 
+.skeleton{
+  display: flex;
+  flex-direction: row;
+}
 .logo.logo-width-1 a img {
   width: 180px;
   height: 7rem;
@@ -10605,6 +10615,12 @@ footer .hotline img {
 }
 
 @media only screen and (max-width: 768px) {
+  .skeleton {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
   .totall-product h2 {
     font-size: 28px;
   }
@@ -10635,7 +10651,7 @@ footer .hotline img {
   .logo.logo-width-1 {
     margin-right: 0;
     position: absolute;
-    left: 50%;
+    left: 70%;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
   }

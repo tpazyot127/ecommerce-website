@@ -1,7 +1,7 @@
 import React from "react";
 import ContentLoader from "react-content-loader";
 
-function Cat1TabSkeleton() {
+function TabSliderSkeleton() {
   return (
     <ContentLoader
       speed={3}
@@ -18,9 +18,9 @@ function Cat1TabSkeleton() {
       <rect x="20" y="310" rx="5" ry="5" width="260" height="20" />
       <rect x="20" y="340" rx="5" ry="5" width="260" height="20" />
       <rect x="20" y="370" rx="5" ry="5" width="260" height="20" />
-      <rect x="20" y="400" rx="5" ry="5" width="260" height="20" />
+      <rect x="20" y="400" rx="5" ry="5" width="260" height="50" />
     </ContentLoader>
   );
 }
 
-export default Cat1TabSkeleton;
+export default TabSliderSkeleton;
