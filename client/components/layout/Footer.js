@@ -27,7 +27,7 @@ const Footer = () => {
                                                 placeholder="Địa chỉ email của bạn"
                                             />
                                             <button className="btn" type="submit">
-                                                Subscribe
+                                                Đăng ký  
                                             </button>
                                         </form>
                                     </div>
@@ -151,9 +151,9 @@ const Footer = () => {
                                     </div>
                                     <div className="banner-text">
                                         <h3 className="icon-box-title">
-                                            Safe delivery
+                                            Giao hàng nhanh 
                                         </h3>
-                                        <p>Within 30 days</p>
+                                        <p>Trong vòng 3 ngày</p>
                                     </div>
                                 </div>
                             </div>
@@ -224,7 +224,7 @@ const Footer = () => {
                                 className="footer-link-widget col  wow animate__animated animate__fadeInUp"
                                 data-wow-delay=".1s"
                             >
-                                <h4 className="widget-title">Company</h4>
+                                <h4 className="widget-title">Hợp tác xã </h4>
                                 <ul className="footer-list  mb-sm-5 mb-md-0">
                                     <li>
                                         <a href="#">Về chúng tôi</a>
@@ -250,7 +250,7 @@ const Footer = () => {
                                 className="footer-link-widget col  wow animate__animated animate__fadeInUp"
                                 data-wow-delay=".2s"
                             >
-                                <h4 className="widget-title ">Account</h4>
+                                <h4 className="widget-title ">Tài khoản</h4>
                                 <ul className="footer-list  mb-sm-5 mb-md-0">
                                     <li>
                                         <a href="#">Đăng nhập</a>
@@ -279,7 +279,7 @@ const Footer = () => {
                                 className="footer-link-widget col  wow animate__animated animate__fadeInUp"
                                 data-wow-delay=".3s"
                             >
-                                <h4 className="widget-title ">Corporate</h4>
+                                <h4 className="widget-title ">Hợp tác</h4>
                                 <ul className="footer-list  mb-sm-5 mb-md-0">
                                     <li>
                                         <a href="#">Trở thành nhà phân phối</a>
@@ -302,28 +302,16 @@ const Footer = () => {
                                 className="footer-link-widget col  wow animate__animated animate__fadeInUp"
                                 data-wow-delay=".4s"
                             >
-                                <h4 className="widget-title ">Popular</h4>
+                                <h4 className="widget-title ">Phổ biến</h4>
                                 <ul className="footer-list  mb-sm-5 mb-md-0">
                                     <li>
-                                        <a href="#">Milk & Flavoured Milk</a>
+                                        <a href="#">Yến sạch </a>
                                     </li>
                                     <li>
-                                        <a href="#">Butter and Margarine</a>
+                                        <a href="#">Đông trùng hạ thảo</a>
                                     </li>
                                     <li>
-                                        <a href="#">Eggs Substitutes</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Marmalades</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Sour Cream and Dips</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Tea & Kombucha</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Cheese</a>
+                                        <a href="#">Hạt dinh dưỡng sấy khô</a>
                                     </li>
                                 </ul>
                             </div>

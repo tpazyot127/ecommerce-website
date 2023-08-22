@@ -30,7 +30,7 @@ const Intro1 = () => {
                             <h1 className="display-2 mb-40">
                                 Đừng bỏ lỡ
                                 <br />
-                                Deals sốc
+                                Khuyến mãi sốc
                             </h1>
                             <p className="mb-65">
                                 Đăng nhập để nhận thông tin mới nhất    
@@ -41,7 +41,7 @@ const Intro1 = () => {
                                     placeholder="Nhập email của bạn "
                                 />
                                 <button className="btn" type="submit">
-                                    Subscribe
+                                   Đăng ký 
                                 </button>
                             </form>
                         </div>
@@ -70,7 +70,7 @@ const Intro1 = () => {
                                     placeholder="Nhập email của bạn "
                                 />
                                 <button className="btn" type="submit">
-                                    Subscribe
+                                    Đăng ký 
                                 </button>
                             </form>
                         </div>

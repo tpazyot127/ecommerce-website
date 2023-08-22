@@ -1857,8 +1857,8 @@ const Cart = ({
                             <div className="col-lg-5">
                                 <div className="border p-40 cart-totals ml-30 mb-50">
                                     <div className="d-flex align-items-end justify-content-between mb-30">
-                                        <h4>Your Order</h4>
-                                        <h6 className="text-muted">Subtotal</h6>
+                                        <h4>Đơn hàng của bạn</h4>
+                                        <h6 className="text-muted">Tổng cộng</h6>
                                     </div>
                                     <div className="divider-2 mb-30"></div>
                                     <div className="table-responsive order_table">

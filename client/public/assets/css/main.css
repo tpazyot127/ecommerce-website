@@ -1881,6 +1881,7 @@ label {
 .hero-slider-1 .slider-content form button {
   border: 0;
   border-radius: 50px;
+  width : 45%
 }
 
 .hero-slider-1 .single-slider-img-1 {
@@ -6447,8 +6448,7 @@ h6.post-title {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  height: 150px;
-  margin-top: -25px;
+  height: 120px;
 }
 
 .header-wrap .header-right {
@@ -10656,8 +10656,18 @@ footer .hotline img {
             transform: translateX(-50%);
   }
   .logo.logo-width-1 a img {
-    width: 150px;
-    min-width: 150px;
+    width: 120px;
+    height: 45px;
+    padding-left: 25px;
+    min-width: 93px;
+    margin-top :-20px
+  }
+  .h4 {
+    font-size: 15px !important;
+  }
+  .header-wrap.header-space-between {
+    justify-content: space-between;
+    height: 55px;
   }
   .header-bottom {
     padding: 20px 0;
@@ -11335,7 +11345,7 @@ footer .hotline img {
     max-width: 310px;
   }
   .hero-slider-1 .single-hero-slider .slider-content form button.submit, .hero-slider-1 .single-hero-slider .slider-content form button[type="submit"] {
-    padding: 12px 20px;
+    padding: 12px 10px;
   }
   .security-code {
     padding: 0 20px;

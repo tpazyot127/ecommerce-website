@@ -28,32 +28,6 @@ const Header = ({
   return (
     <>
       <header className="header-area header-style-1 header-height-2">
-        <div className="mobile-promotion">
-          <span>
-            <strong>giảm giá tới 15%</strong>
-          </span>
-        </div>
-        <div className="header-top header-top-ptb-1 d-none d-lg-block">
-          <div className="container">
-            <div className="row align-items-center">
-              <div className="col-xl-3 col-lg-4"></div>
-              <div className="col-xl-6 col-lg-4">
-                <div className="text-center">
-                  <div id="news-flash" className="d-inline-block">
-                    <ul>
-                      <li>
-                        Giảm giá tới 50%
-                        <Link href="/shop-grid-right">
-                          <a> Xem thêm</a>
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="header-middle header-middle-ptb-1 d-none d-lg-block">
           <div className="container">
             <div className="header-wrap">
@@ -308,7 +282,7 @@ const Header = ({
                     </div>
                     <div className="more_categories">
                       <span className="icon"></span>{" "}
-                      <span className="heading-sm-1">Show more...</span>
+                      <span className="heading-sm-1">Xem thêm</span>
                     </div>
                   </div>
                 </div>
@@ -364,6 +338,114 @@ const Header = ({
                   <a href="http://Zalo.me/0947630606">Liên hệ zalo</a>
                   <span>0947630606</span>
                 </p>
+              </div>
+              <div className="header-action-icon-2 d-block d-lg-none">
+                <div
+                  className="burger-icon burger-icon-white"
+                  onClick={toggleClick}
+                >
+                  <span className="burger-icon-top"></span>
+                  <span className="burger-icon-mid"></span>
+                  <span className="burger-icon-bottom"></span>
+                </div>
+              </div>
+              <div className="header-action-right d-block d-lg-none">
+                <div className="header-action-2">
+                  <div className="header-action-icon-2">
+                    <Link href="/shop-wishlist">
+                      <a>
+                        <img
+                          alt="Evara"
+                          src="/assets/imgs/theme/icons/icon-heart.svg"
+                        />
+                        <span className="pro-count white">
+                          {totalWishlistItems}
+                        </span>
+                      </a>
+                    </Link>
+                  </div>
+                  <div className="header-action-icon-2">
+                    <Link href="/shop-cart" className="mini-cart-icon">
+                      <a>
+                        <img
+                          alt="Evara"
+                          src="/assets/imgs/theme/icons/icon-cart.svg"
+                        />
+                        <span className="pro-count white">
+                          {totalCartItems}
+                        </span>
+                      </a>
+                    </Link>
+                    <div className="cart-dropdown-wrap cart-dropdown-hm2">
+                      <ul>
+                        <li>
+                          <div className="shopping-cart-img">
+                            <Link href="/shop-grid-right">
+                              <img
+                                alt="Evara"
+                                src="/assets/imgs/shop/thumbnail-3.jpg"
+                              />
+                            </Link>
+                          </div>
+                          <div className="shopping-cart-title">
+                            <h4>
+                              <Link href="/shop-grid-right">
+                                Plain Striola Shirts
+                              </Link>
+                            </h4>
+                            <h3>
+                              <span>1 ×</span>
+                              $800.00
+                            </h3>
+                          </div>
+                          <div className="shopping-cart-delete">
+                            <Link href="/#">
+                              <i className="fi-rs-cross-small"></i>
+                            </Link>
+                          </div>
+                        </li>
+                        <li>
+                          <div className="shopping-cart-img">
+                            <Link href="/shop-grid-right">
+                              <img
+                                alt="Evara"
+                                src="/assets/imgs/shop/thumbnail-4.jpg"
+                              />
+                            </Link>
+                          </div>
+                          <div className="shopping-cart-title">
+                            <h4>
+                              <Link href="/shop-grid-right">
+                                Macbook Pro 2024
+                              </Link>
+                            </h4>
+                            <h3>
+                              <span>1 ×</span>
+                              $3500.00
+                            </h3>
+                          </div>
+                          <div className="shopping-cart-delete">
+                            <Link href="/#">
+                              <i className="fi-rs-cross-small"></i>
+                            </Link>
+                          </div>
+                        </li>
+                      </ul>
+                      <div className="shopping-cart-footer">
+                        <div className="shopping-cart-total">
+                          <h4>
+                            Tổng cộng  
+                            <span>$383.00</span>
+                          </h4>
+                        </div>
+                        <div className="shopping-cart-button">
+                          <Link href="/shop-cart">Giỏ hàng</Link>
+                          <Link href="/shop-checkout">Thanh toán</Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
