@@ -219,7 +219,6 @@ const Header = ({
                   >
                     <div className="d-flex categori-dropdown-inner">
                       <CategoryProduct2 />
-                      <CategoryProduct3 />
                     </div>
                     <div
                       className="more_slide_open"
@@ -314,11 +313,6 @@ const Header = ({
                         </Link>
                       </li>
 
-                      <li>
-                        <Link href="/blog-category-grid">
-                          <a>Bài viết</a>
-                        </Link>
-                      </li>
                       <li>
                         <Link href="/page-contact">
                           <a>Liên hệ</a>
@@ -434,7 +428,7 @@ const Header = ({
                       <div className="shopping-cart-footer">
                         <div className="shopping-cart-total">
                           <h4>
-                            Tổng cộng  
+                            Tổng cộng
                             <span>$383.00</span>
                           </h4>
                         </div>

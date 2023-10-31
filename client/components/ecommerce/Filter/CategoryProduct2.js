@@ -1,86 +1,75 @@
+import React, { useEffect, useState, useMemo } from "react";
 import { useRouter } from "next/router";
 import { connect } from "react-redux";
 import { updateProductCategory } from "../../../redux/action/productFiltersAction";
+import { server } from "../../../config/index";
 
 const CategoryProduct2 = ({ updateProductCategory }) => {
+  const router = useRouter();
+  const [cat1, setCat1] = useState([]);
 
+  // const removeSearchTerm = () => {
+  //     router.push({
+  //         pathname: "/products",
+  //     });
+  // };
 
+  const catP1 = async () => {
+    const request = await fetch(`${server}/products`);
+    const allProducts = await request.json();
+    const cat1Item = allProducts;
+    setCat1(cat1Item);
+  };
 
+  useEffect(() => {
+    catP1();
+  }, []);
 
-    const router = useRouter();
+  const itemCategory = useMemo(() => {
+    const category = cat1?.products?.map((item) => item.category);
+    const uniqueCategory = [...new Set(category)];
+    return uniqueCategory;
+  }, [cat1]);
+  const selectCategory = (e, category) => {
+    e.preventDefault();
+    // removeSearchTerm();
+    updateProductCategory(category);
+    router.push({
+      pathname: "/products",
+      query: {
+        cat: category, //
+      },
+    });
+  };
 
-    // const removeSearchTerm = () => {
-    //     router.push({
-    //         pathname: "/products",
-    //     });
-    // };
-
-    const selectCategory = (e, category) => {
-        e.preventDefault();
-        // removeSearchTerm();
-        updateProductCategory(category);
-        router.push({
-            pathname: "/products",
-            query: {
-                cat: category, //
-            },
-        });
-    };
-    return (
-        <>
-            <ul>
-                <li onClick={(e) => selectCategory(e, "jeans")}>
-                    <a>
-                        <img
-                            src="/assets/imgs/theme/icons/category-1.svg"
-                            alt=""
-                        />
-                        Milks & Dairies
-                    </a>
-                    
-                </li>
-                <li onClick={(e) => selectCategory(e, "shoe")}>
-                    <a>
-                        <img
-                            src="/assets/imgs/theme/icons/category-2.svg"
-                            alt=""
-                        />
-                        Clothing
-                    </a>
-                    
-                </li>
-                <li onClick={(e) => selectCategory(e, "jacket")}>
-                    <a>
-                        <img
-                            src="/assets/imgs/theme/icons/category-3.svg"
-                            alt=""
-                        />
-                        Pet Foods{" "}
-                    </a>
-                    
-                </li>
-                <li onClick={(e) => selectCategory(e, "trousers")}>
-                    <a>
-                        <img
-                            src="/assets/imgs/theme/icons/category-4.svg"
-                            alt=""
-                        />
-                        Baking material
-                    </a>
-                    
-                </li>
-                <li onClick={(e) => selectCategory(e, "accessories")}>
-                    <a>
-                        <img
-                            src="/assets/imgs/theme/icons/category-5.svg"
-                            alt=""
-                        />
-                        Fresh Fruit
-                    </a>
-                </li>
-            </ul>
-        </>
-    );
+  return (
+    <>
+      <ul>
+        {itemCategory && itemCategory.length > 0
+          ? itemCategory.map((item, index) => (
+              <li key={index} onClick={(e) => selectCategory(e, item)}>
+                <a>
+                  {(() => {
+                    switch (item) {
+                      case "yensach":
+                        return "Yến sào";
+                      case "dongtrunghathao":
+                        return "Đông trùng hạ thảo";
+                      case "hatdinhduong":
+                        return "Hạt dinh dưỡng";
+                      case "mang":
+                        return "Măng";
+                      default:
+                        return item;
+                    }
+                  })()}
+                </a>
+              </li>
+            ))
+          : null}
+      </ul>
+    </>
+  );
 };
 
 export default connect(null, { updateProductCategory })(CategoryProduct2);

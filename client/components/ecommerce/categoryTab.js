@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { server } from "../../config/index";
 import Cat1Tab from "../elements/FeaturedTab";
 import Cat1TabSkeleton from "../elements/Cat1TabSkeleton"; // import the skeleton component
@@ -6,9 +6,7 @@ import Cat1TabSkeleton from "../elements/Cat1TabSkeleton"; // import the skeleto
 function CategoryTab() {
   const [active, setActive] = useState("1");
   const [catAll, setCatAll] = useState([]);
-  const [cat1, setCat1] = useState([]);
-  const [cat2, setCat2] = useState([]);
-  const [cat3, setCat3] = useState([]);
+  console.log(2424242, catAll);
 
   const [isLoading, setIsLoading] = useState(false); // add a loading state
 
@@ -21,14 +19,12 @@ function CategoryTab() {
     setActive("1");
     setIsLoading(false); // set the loading state to false
   };
+
   const catP1 = async () => {
     setIsLoading(true); // set the loading state to true
     const request = await fetch(`${server}/products`);
     const allProducts = await request.json();
-    const cat1Item = allProducts?.products?.filter(
-      (item) => item.category == "yensach"
-    );
-    setCat1(cat1Item);
+    setCatAll(allProducts?.products);
     setActive("2");
     setIsLoading(false); // set the loading state to false
   };
@@ -37,28 +33,48 @@ function CategoryTab() {
     setIsLoading(true); // set the loading state to true
     const request = await fetch(`${server}/products`);
     const allProducts = await request.json();
-    const cat2Item = allProducts?.products?.filter(
-      (item) => item.category == "dongtrunghathao"
-    );
-    setCat2(cat2Item);
+    setCatAll(allProducts?.products);
     setActive("3");
     setIsLoading(false); // set the loading state to false
   };
+
   const catP3 = async () => {
     setIsLoading(true); // set the loading state to true
     const request = await fetch(`${server}/products`);
     const allProducts = await request.json();
-    const cat3Item = allProducts?.products?.filter(
-      (item) => item.category == "hatdinhduong"
-    );
-    setCat3(cat3Item);
+    setCatAll(allProducts?.products);
     setActive("4");
     setIsLoading(false); // set the loading state to false
   };
 
+  const catP4 = async () => {
+    setIsLoading(true); // set the loading state to true
+    const request = await fetch(`${server}/products`);
+    const allProducts = await request.json();
+    setCatAll(allProducts?.products);
+    setActive("5");
+    setIsLoading(false); // set the loading state to false
+  };
   useEffect(() => {
     catPAll();
   }, []);
+
+  const filteredProducts = useMemo(() => {
+    switch (active) {
+      case "1":
+        return catAll;
+      case "2":
+        return catAll.filter((item) => item.category === "yensach");
+      case "3":
+        return catAll.filter((item) => item.category === "dongtrunghathao");
+      case "4":
+        return catAll.filter((item) => item.category === "hatdinhduong");
+      case "5":
+        return catAll.filter((item) => item.category === "mang");
+      default:
+        return catAll;
+    }
+  }, [active, catAll]);
 
   return (
     <>
@@ -71,6 +87,14 @@ function CategoryTab() {
               onClick={catPAll}
             >
               Tất cả
+            </button>
+          </li>
+          <li className="nav-item" role="presentation">
+            <button
+              className={active === "5" ? "nav-link active" : "nav-link"}
+              onClick={catP4}
+            >
+              Măng
             </button>
           </li>
           <li className="nav-item" role="presentation">
@@ -107,16 +131,18 @@ function CategoryTab() {
           }
         >
           <div className="product-grid-4 row">
-            {isLoading && catAll? (
+            {isLoading && catAll ? (
               <div className="skeleton">
-                  {Array(5).fill().map((_, index) => (
-                    <div style={{ paddingRight : '35px'}}>
+                {Array(5)
+                  .fill()
+                  .map((_, index) => (
+                    <div style={{ paddingRight: "35px" }}>
                       <Cat1TabSkeleton key={index} />
                     </div>
                   ))}
               </div>
             ) : (
-              <Cat1Tab products={catAll} />
+              <Cat1Tab products={filteredProducts} />
             )}
           </div>
         </div>
@@ -127,16 +153,18 @@ function CategoryTab() {
           }
         >
           <div className="product-grid-4 row">
-            {isLoading && cat1? (
+            {isLoading && catAll ? (
               <div className="skeleton">
-                  {Array(5).fill().map((_, index) => (
-                    <div style={{ paddingRight : '35px'}}>
+                {Array(5)
+                  .fill()
+                  .map((_, index) => (
+                    <div style={{ paddingRight: "35px" }}>
                       <Cat1TabSkeleton key={index} />
                     </div>
                   ))}
               </div>
             ) : (
-              <Cat1Tab products={cat1} />
+              <Cat1Tab products={filteredProducts} />
             )}
           </div>
         </div>
@@ -147,16 +175,18 @@ function CategoryTab() {
           }
         >
           <div className="product-grid-4 row">
-            {isLoading && cat2? (
+            {isLoading && catAll ? (
               <div className="skeleton">
-                  {Array(5).fill().map((_, index) => (
-                    <div style={{ paddingRight : '35px'}}>
+                {Array(10)
+                  .fill()
+                  .map((_, index) => (
+                    <div style={{ paddingRight: "35px" }}>
                       <Cat1TabSkeleton key={index} />
                     </div>
                   ))}
               </div>
             ) : (
-              <Cat1Tab products={cat2} />
+              <Cat1Tab products={filteredProducts} />
             )}
           </div>
         </div>
@@ -167,16 +197,39 @@ function CategoryTab() {
           }
         >
           <div className="product-grid-4 row">
-            {isLoading && cat3 ? (
+            {isLoading && catAll ? (
               <div className="skeleton">
-                  {Array(5).fill().map((_, index) => (
-                    <div style={{ paddingRight : '35px'}}>
+                {Array(10)
+                  .fill()
+                  .map((_, index) => (
+                    <div style={{ paddingRight: "35px" }}>
                       <Cat1TabSkeleton key={index} />
                     </div>
                   ))}
               </div>
             ) : (
-              <Cat1Tab products={cat3} />
+              <Cat1Tab products={filteredProducts} />
+            )}
+          </div>
+        </div>
+        <div
+          className={
+            active === "5" ? "tab-pane fade show active" : "tab-pane fade"
+          }
+        >
+          <div className="product-grid-4 row">
+            {isLoading && catAll ? (
+              <div className="skeleton">
+                {Array(5)
+                  .fill()
+                  .map((_, index) => (
+                    <div style={{ paddingRight: "35px" }}>
+                      <Cat1TabSkeleton key={index} />
+                    </div>
+                  ))}
+              </div>
+            ) : (
+              <Cat1Tab products={filteredProducts} />
             )}
           </div>
         </div>
@@ -184,4 +237,5 @@ function CategoryTab() {
     </>
   );
 }
+
 export default CategoryTab;

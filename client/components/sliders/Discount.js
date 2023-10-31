@@ -8,55 +8,51 @@ import { server } from "../config/index";
 SwiperCore.use([Navigation]);
 
 const DiscountSlider = () => {
-    const [discount, setDiscount] = useState([]);
+  const [discount, setDiscount] = useState([]);
 
-    console.log(discount);
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
-    useEffect(() => {
-        fetchProducts();
-    }, []);
+  const fetchProducts = async () => {
+    // With Category
+    const allProducts = await fetchByCatagory(`${server}/products`);
 
-    const fetchProducts = async () => {
-        // With Category
-        const allProducts = await fetchByCatagory(`${server}/products`);
-
-        // Discount
-        const discountProduct = allProducts?.products?.filter(
-            (item) => item.discount.isActive
-        );
-
-        setDiscount(discountProduct);
-    };
-    return (
-        <>
-            <Swiper
-                slidesPerView={4}
-                spaceBetween={15}
-                
-                navigation={{
-                    prevEl: ".custom_prev_d",
-                    nextEl: ".custom_next_d",
-                }}
-                className="custom-class"
-            >
-                {discount.map((product, i) => (
-                    <SwiperSlide key={i}>
-                        <SingleProduct product={product} />
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-
-            <div className="custom-nav">
-                <button type="button" className="custom_prev_d">
-                    Prev
-                </button>
-                <button type="button" className="custom_next_d">
-                    Next
-                </button>
-            </div>
-        </>
+    // Discount
+    const discountProduct = allProducts?.products?.filter(
+      (item) => item.discount.isActive,
     );
-};
 
+    setDiscount(discountProduct);
+  };
+  return (
+    <>
+      <Swiper
+        slidesPerView={4}
+        spaceBetween={15}
+        navigation={{
+          prevEl: ".custom_prev_d",
+          nextEl: ".custom_next_d",
+        }}
+        className="custom-class"
+      >
+        {discount.map((product, i) => (
+          <SwiperSlide key={i}>
+            <SingleProduct product={product} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      <div className="custom-nav">
+        <button type="button" className="custom_prev_d">
+          Prev
+        </button>
+        <button type="button" className="custom_next_d">
+          Next
+        </button>
+      </div>
+    </>
+  );
+};
 
 export default DiscountSlider;

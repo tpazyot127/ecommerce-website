@@ -11,10 +11,10 @@ export interface Gallery {
 }
 
 export interface Discount {
-  banner : string;
-  percentage : number;
-  expireDate : Date;
-  isActive : boolean;
+  banner: string;
+  percentage: number;
+  expireDate: Date;
+  isActive: boolean;
 }
 @Schema({ timestamps: true })
 export class Review {
@@ -59,9 +59,9 @@ export class Product {
   @Prop({ required: true, type: [] })
   gallery: Gallery[];
 
-  @Prop({type : []})
-  discount : Discount[];
-  
+  @Prop({ type: [] })
+  discount: Discount[];
+
   @Prop({ required: true })
   desc: string;
 
@@ -87,10 +87,10 @@ export class Product {
   totalSell: number;
 
   @Prop({ default: false })
-  featured : boolean;
+  featured: boolean;
 
   @Prop({ default: false })
-  trending : boolean;
+  trending: boolean;
 
   @Prop({ required: true, default: 0 })
   stock: number;

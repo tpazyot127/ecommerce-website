@@ -42,7 +42,6 @@ export class ProductsService {
       .limit(pageSize)
       .skip(pageSize * (page - 1));
 
-    console.log('products', products);
     
     if (!products.length) throw new NotFoundException('No products found.');
 
