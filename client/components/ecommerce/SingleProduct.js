@@ -119,7 +119,7 @@ const SingleProduct = ({
             </div>
             <div className="add-cart">
               <a className="add" onClick={(e) => handleCart(product)}>
-                <i className="fi-rs-shopping-cart mr-5"></i> Add
+                <i className="fi-rs-shopping-cart mr-5"></i>Thêm
               </a>
             </div>
           </div>

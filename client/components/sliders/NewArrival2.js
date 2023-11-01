@@ -23,7 +23,7 @@ const NewArrival2 = () => {
       return a.created > b.created ? -1 : 1;
     });
 
-    setNewArrival(newArrivalProducts);
+    setNewArrival(newArrivalProducts.reverse());
     setLoading(false);
   };
 

@@ -31,10 +31,10 @@ function Test() {
 
               <section className="section-padding pb-5">
                 <div className="section-title" data-wow-delay="0">
-                  <h3 className="">Deals Of The Day</h3>
+                  <h3 className="">Ưu đãi trong ngày</h3>
                   <Link href="/shop-grid-right">
                     <a className="show-all">
-                      All Deals
+                      Xem tất cả
                       <i className="fi-rs-angle-right"></i>
                     </a>
                   </Link>
@@ -49,12 +49,12 @@ function Test() {
             </div>
             <div className="col-lg-1-5 primary-sidebar sticky-sidebar pt-30">
               <div className="sidebar-widget widget-category-2 mb-30">
-                <h5 className="section-title style-1 mb-30">Category</h5>
+                <h5 className="section-title style-1 mb-30">Danh mục</h5>
                 <CategoryProduct />
               </div>
 
               <div className="sidebar-widget price_range range mb-30">
-                <h5 className="section-title style-1 mb-30">Fill by price</h5>
+                <h5 className="section-title style-1 mb-30">Lọc theo giá</h5>
                 <div className="bt-1 border-color-1"></div>
 
                 <div className="price-filter">

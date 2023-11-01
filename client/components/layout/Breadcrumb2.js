@@ -14,7 +14,7 @@ const Breadcrumb2 = ({parent, sub, subChild, noBreadcrumb}) => {
                 <div className="archive-header">
                     <div className="row align-items-center">
                         <div className="col-xl-3">
-                            <h1 className="mb-15 text-capitalize">{titlex ? titlex : "Category"}</h1>
+                            <h1 className="mb-15 text-capitalize">{titlex ? titlex : "Danh mục"}</h1>
                             <div className="breadcrumb">
                                 <Link href="/"><a rel="nofollow"><i className="fi-rs-home mr-5"></i>Trang chủ</a></Link>
                                 <span></span> Cửa hàng <span></span> {titlex}

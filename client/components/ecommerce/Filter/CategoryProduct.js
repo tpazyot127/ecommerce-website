@@ -20,7 +20,7 @@ const CategoryProduct = ({ updateProductCategory }) => {
         <>
             <ul>
                 <li onClick={(e) => selectCategory(e, "")}>
-                    <a>All</a>
+                    <a>Tất cả</a>
                 </li>
                 <li onClick={(e) => selectCategory(e, "jeans")}>
                     <a>
