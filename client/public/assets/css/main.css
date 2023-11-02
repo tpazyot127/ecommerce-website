@@ -10781,7 +10781,7 @@ footer .hotline img {
     display: none;
   }
   .home-slider .hero-slider-1 {
-    height: 350px;
+    height: 280px;
   }
   .home-slider .hero-slider-1.style-2 {
     height: 400px;
@@ -11251,7 +11251,7 @@ footer .hotline img {
   }
   .hero-slider-1 .single-hero-slider .slider-content p {
     font-size: 22px;
-    margin-bottom: 40px !important;
+    margin-bottom: 10px !important;
   }
   .banner-img .banner-text h4 {
     min-height: 50px;
@@ -11339,7 +11339,7 @@ footer .hotline img {
   }
   .hero-slider-1 .single-hero-slider .slider-content p {
     font-size: 16px;
-    margin-bottom: 40px !important;
+    margin-bottom: 10px !important;
   }
   .hero-slider-1 .single-hero-slider .slider-content form {
     max-width: 310px;
