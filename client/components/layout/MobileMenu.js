@@ -170,7 +170,7 @@ const MobileMenu = ({ isToggled, toggleClick }) => {
                                             onClick={() => handleToggle(1)}
                                         >
                                         </span>
-                                        <Link href="/index">
+                                        <Link href="/">
                                             <a>Trang chủ</a>
                                         </Link>
                                     </li>

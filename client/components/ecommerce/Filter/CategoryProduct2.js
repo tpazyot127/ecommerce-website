@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { updateProductCategory } from "../../../redux/action/productFiltersAction";
 import { server } from "../../../config/index";
 
-const CategoryProduct2 = ({ updateProductCategory }) => {
+const CategoryProduct2 = ({ updateProductCategory, type }) => {
   const router = useRouter();
   const [cat1, setCat1] = useState([]);
 
@@ -35,7 +35,7 @@ const CategoryProduct2 = ({ updateProductCategory }) => {
     // removeSearchTerm();
     updateProductCategory(category);
     router.push({
-      pathname: "/products",
+      pathname: type === "mobile" ? "shop-grid-right" : "/products",
       query: {
         cat: category, //
       },
