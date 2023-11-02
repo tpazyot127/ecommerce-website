@@ -10781,7 +10781,8 @@ footer .hotline img {
     display: none;
   }
   .home-slider .hero-slider-1 {
-    height: 280px;
+    height: 260px;
+    border-radius: 35px;
   }
   .home-slider .hero-slider-1.style-2 {
     height: 400px;
