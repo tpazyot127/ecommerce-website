@@ -29,17 +29,9 @@ TABLE CONTENT
 ***/
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Quicksand:wght@400;500;600;700&display=swap");
 
-@font-face {
-  font-family: "uicons-regular-straight";
-  src:
-    url("../../fonts/uicons/uicons-regular-straight.eot#iefix")
-      format("embedded-opentype"),
-    url("../../fonts/uicons/uicons-regular-straight.woff2") format("woff2"),
-    url("../../fonts/uicons/uicons-regular-straight.woff") format("woff");
-}
 /*import vendors*/
 @import url(vendors/bootstrap.min.css);
-@import url(vendors/uicons-regular-straight.css);
+/* @import url(vendors/uicons-regular-straight.css); */
 /*import plugins*/
 /*RESET*/
 html,
