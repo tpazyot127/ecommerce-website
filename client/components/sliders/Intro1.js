@@ -27,23 +27,14 @@ const Intro1 = () => {
                         }}
                     >
                         <div className="slider-content">
-                            <h1 className="display-2 mb-40">
+                            <h4 className="display-2 mb-40">
                                 Đừng bỏ lỡ
                                 <br />
                                 Khuyến mãi sốc
-                            </h1>
+                            </h4>
                             <p className="mb-65">
                                 Đăng nhập để nhận thông tin mới nhất    
                             </p>
-                            <form className="form-subcriber d-flex">
-                                <input
-                                    type="email"
-                                    placeholder="Nhập email của bạn "
-                                />
-                                <button className="btn" type="submit">
-                                   Đăng ký 
-                                </button>
-                            </form>
                         </div>
                     </div>
                 </SwiperSlide>
@@ -64,15 +55,6 @@ const Intro1 = () => {
                             <p className="mb-65">
                                 Giảm giá 50% cho đơn hàng đầu tiên
                             </p>
-                            <form className="form-subcriber d-flex">
-                                <input
-                                    type="email"
-                                    placeholder="Nhập email của bạn "
-                                />
-                                <button className="btn" type="submit">
-                                    Đăng ký 
-                                </button>
-                            </form>
                         </div>
                     </div>
                 </SwiperSlide>

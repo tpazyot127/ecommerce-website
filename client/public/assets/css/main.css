@@ -10781,8 +10781,9 @@ footer .hotline img {
     display: none;
   }
   .home-slider .hero-slider-1 {
-    height: 260px;
+    height: 140px;
     border-radius: 35px;
+    margin-bottom : -60px
   }
   .home-slider .hero-slider-1.style-2 {
     height: 400px;
@@ -11248,7 +11249,7 @@ footer .hotline img {
   }
   .hero-slider-1 .single-hero-slider .display-2 {
     font-size: 46px;
-    margin-bottom: 25px !important;
+    margin-bottom: 15px !important;
   }
   .hero-slider-1 .single-hero-slider .slider-content p {
     font-size: 22px;
@@ -11336,10 +11337,10 @@ footer .hotline img {
     line-height: 22px;
   }
   .hero-slider-1 .single-hero-slider .display-2 {
-    font-size: 32px;
+    font-size: 25px;
   }
   .hero-slider-1 .single-hero-slider .slider-content p {
-    font-size: 16px;
+    font-size: 13px;
     margin-bottom: 10px !important;
   }
   .hero-slider-1 .single-hero-slider .slider-content form {
