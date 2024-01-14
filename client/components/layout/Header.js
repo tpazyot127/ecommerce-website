@@ -35,7 +35,7 @@ const Header = ({
                 <Link href="/">
                   <a>
                     <img src="/assets/imgs/theme/logo.svg" alt="logo" />
-                    <h4>HTX Nông Sản Việt</h4>
+                    <h4>Hợp tác xã Nông sản Việt - Tâm hồn Việt!</h4>
                   </a>
                 </Link>
               </div>
