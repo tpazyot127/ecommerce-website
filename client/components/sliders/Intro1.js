@@ -10,13 +10,13 @@ const Intro1 = () => {
             <Swiper
                 slidesPerView={1}
                 spaceBetween={0}
-                
                 pagination={true}
                 navigation={{
                     prevEl: ".custom_prev_i1",
                     nextEl: ".custom_next_i1",
                 }}
                 className="hero-slider-1 style-4 dot-style-1 dot-style-1-position-1"
+                style={{height:"430px"}}
             >
                 <SwiperSlide>
                     <div
@@ -24,6 +24,7 @@ const Intro1 = () => {
                         style={{
                             backgroundImage:
                                 "url(assets/imgs/slider/slider-1.png)",
+                            height:"430px"
                         }}
                     >
                         <div className="slider-content">
@@ -44,6 +45,7 @@ const Intro1 = () => {
                         style={{
                             backgroundImage:
                                 "url(assets/imgs/slider/slider-2.png)",
+                            height:"430px"
                         }}
                     >
                         <div className="slider-content">

@@ -26,24 +26,17 @@ const Search = () => {
         <>
             <form>
                 <select className="select-active">
-                    <option>All Categories</option>
-                    <option>Women's</option>
-                    <option>Men's</option>
-                    <option>Cellphones</option>
-                    <option>Computer</option>
-                    <option>Electronics</option>
-                    <option> Accessories</option>
-                    <option>Home & Garden</option>
-                    <option>Luggage</option>
-                    <option>Shoes</option>
-                    <option>Mother & Kids</option>
+                    <option>Tất cả SP</option>
+                    <option>Đồ ăn liền</option>
+                    <option>Đồ khô</option>
+                    <option>Dược liệu</option>
                 </select>
                 <input
                     value={searchTerm}
                     onKeyDown={handleInput}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     type="text"
-                    placeholder="Search"
+                    placeholder="Tìm kiếm sản phẩm"
                 />
             </form>
         </>
