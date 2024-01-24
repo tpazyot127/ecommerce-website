@@ -17,8 +17,7 @@ h6,
 .font-heading,
 .display-1,
 .display-2,
-.heading-sm-1
-{
+.heading-sm-1 {
   font-family: $font-heading;
   color: $color-heading;
   font-weight: 700;
@@ -80,7 +79,9 @@ button {
   text-decoration: none;
   cursor: pointer;
 }
-b {font-weight: 500;}
+b {
+  font-weight: 500;
+}
 strong,
 .fw-600 {
   font-weight: 600;
@@ -106,7 +107,7 @@ strong,
     flex-flow: row;
     align-items: flex-end;
   }
-  
+
   h3 {
     font-weight: 700;
     font-size: 32px;
@@ -117,7 +118,7 @@ strong,
     color: $color-text;
     &:hover {
       color: $color-brand;
-    }    
+    }
     i {
       font-size: 12px;
       margin-left: 5px;
@@ -153,23 +154,47 @@ h5.widget-title {
   background-repeat: no-repeat;
   padding-bottom: 25px;
 }
-.text-body {color: $color-text !important;}
-.font-xxs{font-size:$font-xxs;}
-.font-xs{font-size:$font-xs;}
-.font-sm{font-size:$font-sm;}
-.font-md{font-size:$font-md;}
-.font-lg{font-size:$font-lg;}
-.font-xl{font-size:$font-xl;}
-.font-xxl{font-size:$font-xxl;}
+.text-body {
+  color: $color-text !important;
+}
+.font-xxs {
+  font-size: $font-xxs;
+}
+.font-xs {
+  font-size: $font-xs;
+}
+.font-sm {
+  font-size: $font-sm;
+}
+.font-md {
+  font-size: $font-md;
+}
+.font-lg {
+  font-size: $font-lg;
+}
+.font-xl {
+  font-size: $font-xl;
+}
+.font-xxl {
+  font-size: $font-xxl;
+}
 
-.text-hot {color: $color-hot}
-.text-new {color: $color-new}
-.text-sale {color: $color-sale}
-.text-best {color: $color-best}
+.text-hot {
+  color: $color-hot;
+}
+.text-new {
+  color: $color-new;
+}
+.text-sale {
+  color: $color-sale;
+}
+.text-best {
+  color: $color-best;
+}
 
 .text-style-1 {
   position: relative;
-  &::after {    
+  &::after {
     content: "";
     background-color: #ffdabf;
     height: 20%;
@@ -187,4 +212,6 @@ h5.widget-title {
     @include transform-duration-5s;
   }
 }
-.fw-700 {font-weight: 700;}
+.fw-700 {
+  font-weight: 700;
+}
