@@ -1,8 +1,21 @@
+import { useState,useEffect } from "react";
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 SwiperCore.use([Navigation, Pagination]);
+
+const useWidth = () => {
+    const [width, setWidth] = useState(0);
+    const handleResize = () => setWidth(window.innerWidth);
+    useEffect(() => {
+      handleResize();
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+    return width;
+  };
 
 const Intro1 = () => {
     return (
@@ -16,7 +29,7 @@ const Intro1 = () => {
                     nextEl: ".custom_next_i1",
                 }}
                 className="hero-slider-1 style-4 dot-style-1 dot-style-1-position-1"
-                style={{height:"430px"}}
+                style={{height:useWidth()>500?"430px":"280px"}}
             >
                 <SwiperSlide>
                     <div
@@ -24,7 +37,7 @@ const Intro1 = () => {
                         style={{
                             backgroundImage:
                                 "url(assets/imgs/slider/slider-1.png)",
-                            height:"430px"
+                            height:useWidth()>500?"430px":"280px"
                         }}
                     >
                         <div className="slider-content">
@@ -45,7 +58,7 @@ const Intro1 = () => {
                         style={{
                             backgroundImage:
                                 "url(assets/imgs/slider/slider-2.png)",
-                            height:"430px"
+                            height:useWidth()>500?"430px":"280px"
                         }}
                     >
                         <div className="slider-content">
