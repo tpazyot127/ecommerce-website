@@ -19,7 +19,7 @@ const useWidth = () => {
 
 const Intro1 = () => {
     return (
-        <>
+        <div style={{marginBottom:"50px"}}>
             <Swiper
                 slidesPerView={1}
                 spaceBetween={0}
@@ -83,7 +83,7 @@ const Intro1 = () => {
                     <i className="fi-rs-angle-right"></i>
                 </span>
             </div>
-        </>
+        </div>
     );
 };
 
