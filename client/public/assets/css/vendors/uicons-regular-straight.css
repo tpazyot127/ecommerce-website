@@ -10,7 +10,7 @@ i[class^="fi-rs-"], span[class^="fi-rs-"] {
 }
 
 i[class^="fi-rs-"]:before, i[class*=" fi-rs-"]:before, span[class^="fi-rs-"]:before, span[class*="fi-rs-"]:before {
-    font-family: uicons-regular-straight !important;
+    font-family: "uicons-regular-straight" !important;
     font-style: normal;
     font-weight: normal !important;
     font-variant: normal;

@@ -8241,7 +8241,7 @@ h6.post-title {
 .header-style-1 .search-style-2 form {
   border: 2px solid #bce3c9;
   border-radius: 4px;
-  max-width: 700px;
+  max-width: 620px;
   background-color: #fff;
 }
 
@@ -11932,7 +11932,7 @@ footer .hotline img {
     font-size: 18px;
   }
   .header-style-1 .search-style-2 form {
-    max-width: 450px;
+    max-width: 430px;
   }
   .header-action-2 .header-action-icon-2:last-child {
     padding: 0 0 0 8px;

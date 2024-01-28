@@ -14,8 +14,8 @@ export class LocalAuthGuard extends AuthGuard('local') {
     const { email, password } = request.body;
 
     if (
-      email.length === 0 ||
-      password.length === 0 ||
+      email?.length === 0 ||
+      password?.length === 0 ||
       !isString(password) ||
       !isString(email)
     ) {
