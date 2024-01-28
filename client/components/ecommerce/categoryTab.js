@@ -15,7 +15,7 @@ function CategoryTab() {
     const request = await fetch(`${server}/products`);
     const allProducts = await request.json();
     const catAllItem = allProducts?.products?.filter((item) => item.category);
-    setCatAll(catAllItem.reverse());
+    setCatAll(catAllItem);
     setActive("1");
     setIsLoading(false); // set the loading state to false
   };
@@ -62,7 +62,7 @@ function CategoryTab() {
   const filteredProducts = useMemo(() => {
     switch (active) {
       case "1":
-        return catAll.reverse();
+        return catAll;
       case "2":
         return catAll.filter((item) => item.category === "yensach");
       case "3":

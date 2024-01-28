@@ -33,7 +33,7 @@ const Products = ({ productFilters }) => {
     const request = await fetch(`${server}/products`);
     const allProducts = await request.json();
     const catAllItem = allProducts?.products;
-    setProducts(catAllItem.reverse());
+    setProducts(catAllItem);
   };
 
   useEffect(() => {
