@@ -19,7 +19,7 @@ const useWidth = () => {
 
 const Intro1 = () => {
     return (
-        <>
+        <div style={{marginBottom:"45px"}}>
             <Swiper
                 slidesPerView={1}
                 spaceBetween={0}
@@ -29,7 +29,7 @@ const Intro1 = () => {
                     nextEl: ".custom_next_i1",
                 }}
                 className="hero-slider-1 style-4 dot-style-1 dot-style-1-position-1"
-                style={{height:useWidth()>500?"430px":"280px"}}
+                style={{height:useWidth()>480?"400px":"200px"}}
             >
                 <SwiperSlide>
                     <div
@@ -37,15 +37,17 @@ const Intro1 = () => {
                         style={{
                             backgroundImage:
                                 "url(assets/imgs/slider/slider-1.png)",
-                            height:useWidth()>500?"430px":"280px"
+                            height:useWidth()>480?"400px":"200px"
                         }}
                     >
                         <div className="slider-content">
-                            <h4 className="display-2 mb-40">
+                            <div className="display-2 mb-40" style={{
+                                    fontSize:useWidth()>480?"45px":"23px"
+                                }}>
                                 Đừng bỏ lỡ
                                 <br />
                                 Khuyến mãi sốc
-                            </h4>
+                            </div>
                             <p className="mb-65">
                                 Đăng nhập để nhận thông tin mới nhất    
                             </p>
@@ -58,15 +60,17 @@ const Intro1 = () => {
                         style={{
                             backgroundImage:
                                 "url(assets/imgs/slider/slider-2.png)",
-                            height:useWidth()>500?"430px":"280px"
+                            height:useWidth()>480?"400px":"200px"
                         }}
                     >
                         <div className="slider-content">
-                            <h1 className="display-2 mb-40">
+                            <div className="display-2 mb-40" style={{
+                                    fontSize:useWidth()>480?"45px":"23px"
+                                }}>
                                 Rau củ sạch
                                 <br />
                                 Giá ưu đãi nhất
-                            </h1>
+                            </div>
                             <p className="mb-65">
                                 Giảm giá 50% cho đơn hàng đầu tiên
                             </p>
@@ -83,7 +87,7 @@ const Intro1 = () => {
                     <i className="fi-rs-angle-right"></i>
                 </span>
             </div>
-        </>
+        </div>
     );
 };
 
