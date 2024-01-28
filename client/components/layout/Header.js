@@ -30,12 +30,13 @@ const Header = ({
       <header className="header-area header-style-1 header-height-2">
         <div className="header-middle header-middle-ptb-1 d-none d-lg-block">
           <div className="container">
-            <div className="header-wrap">
+            <div className="header-wrap" style={{height:"6rem"}}>
               <div className="logo logo-width-1">
                 <Link href="/">
                   <a>
-                    <img src="/assets/imgs/theme/logo.svg" alt="logo" />
-                    <h4>Hợp tác xã Nông sản Việt - Tâm hồn Việt!</h4>
+                    <img src="/assets/imgs/theme/logo.svg" alt="logo" style={{height:"5rem"}}/>
+                    <h5>HTX Nông sản Việt</h5>
+                    <h5>Tâm hồn Việt!</h5>
                   </a>
                 </Link>
               </div>
@@ -186,18 +187,18 @@ const Header = ({
               <div className="logo logo-width-1 d-block d-lg-none">
                 <Link href="/">
                   <a>
-                    <img src="/assets/imgs/theme/logo.svg" alt="logo" />
+                    <img src="/assets/imgs/theme/logo.svg" alt="logo" style={{height:"4rem"}}/>
+                    <h6
+                      style={{
+                        position: "absolute",
+                        left:"10px"
+                      }}
+                    >
+                      HTX Nông Sản Việt
+                    </h6>
                   </a>
                 </Link>
-                <h4
-                  style={{
-                    position: "absolute",
-                    marginLeft: "-35px",
-                    width: "250px",
-                  }}
-                >
-                  HTX Nông Sản Việt
-                </h4>
+                
               </div>
               <div className="header-nav d-none d-lg-flex">
                 <div className="main-categori-wrap d-none d-lg-block">
