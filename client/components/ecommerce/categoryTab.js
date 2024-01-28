@@ -6,7 +6,6 @@ import Cat1TabSkeleton from "../elements/Cat1TabSkeleton"; // import the skeleto
 function CategoryTab() {
   const [active, setActive] = useState("1");
   const [catAll, setCatAll] = useState([]);
-  console.log(2424242, catAll);
 
   const [isLoading, setIsLoading] = useState(false); // add a loading state
 
@@ -14,7 +13,9 @@ function CategoryTab() {
     setIsLoading(true); // set the loading state to true
     const request = await fetch(`${server}/products`);
     const allProducts = await request.json();
-    const catAllItem = allProducts?.products?.filter((item) => item.category);
+    const catAllItem = allProducts?.products
+      ?.filter((item) => item.category)
+      .reverse();
     setCatAll(catAllItem.reverse());
     setActive("1");
     setIsLoading(false); // set the loading state to false
@@ -24,7 +25,7 @@ function CategoryTab() {
     setIsLoading(true); // set the loading state to true
     const request = await fetch(`${server}/products`);
     const allProducts = await request.json();
-    setCatAll(allProducts?.products);
+    setCatAll(allProducts?.products?.reverse());
     setActive("2");
     setIsLoading(false); // set the loading state to false
   };
