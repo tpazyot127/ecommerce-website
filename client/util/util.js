@@ -15,7 +15,7 @@ export const findProductIndexById = (list, id) => {
 };
 
 export const formattedPrice = (price) => {
-  if (price == 4) return "3500 k/1 hộp/1 kg; 1800 k/1 hộp/5 lạng";
+  if (price == 4) return "3tr/1 hộp/1 kg; 1tr8/1 hộp/5 lạng";
   if (price == 2) return "Theo mùa vụ và thời điểm ký hợp đồng";
   if (price == 1) return "5 triệu VNĐ/10g/1 hộp/10 hũ thuỷ tinh";
   return price?.toLocaleString("en-US", { style: "currency", currency: "VND" });
