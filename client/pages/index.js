@@ -13,12 +13,18 @@ import Intro1 from "./../components/sliders/Intro1";
 import Link from "next/link";
 
 export default function Home() {
+  const isMobile =
+    typeof window !== "undefined" &&
+    window.matchMedia("(max-width: 768px)").matches;
   return (
     <>
       {/* <IntroPopup /> */}
 
       <Layout noBreadcrumb="d-none">
-        <section className="home-slider position-relative mb-30">
+        <section
+          className="home-slider position-relative mb-30"
+          style={{ display: isMobile ? "none" : "flex " }}
+        >
           <div className="container">
             <div className="home-slide-cover mt-30">
               <Intro1 />
