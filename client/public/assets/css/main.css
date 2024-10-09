@@ -31,7 +31,7 @@ TABLE CONTENT
 
 /*import vendors*/
 @import url(vendors/bootstrap.min.css);
-/* @import url(vendors/uicons-regular-straight.css); */
+@import url(vendors/uicons-regular-straight.css);
 /*import plugins*/
 /*RESET*/
 html,
