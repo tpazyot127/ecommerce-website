@@ -1,3 +1,4 @@
+import { SessionProvider } from "next-auth/react"
 import { useEffect, useState } from "react";
 // import "react-input-range/lib/css/index.css";
 import "react-perfect-scrollbar/dist/css/styles.css";
@@ -17,7 +18,7 @@ import store from "../redux/store";
 import Preloader from "./../components/elements/Preloader";
 
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: {session, ...pageProps} }) {
     const [loading, setLoading] = useState(false);
     useEffect(() => {
         setLoading(true);
@@ -34,9 +35,10 @@ function MyApp({ Component, pageProps }) {
             {!loading ? (
                 <Provider store={store}>
                     <StorageWrapper>
-                       
+                       <SessionProvider session={session}>
                             <Component {...pageProps} />
                             <ToastContainer />
+                       </SessionProvider>
                     </StorageWrapper>
                 </Provider>
             ) : (
