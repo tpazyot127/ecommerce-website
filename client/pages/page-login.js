@@ -16,17 +16,19 @@ function Login() {
         setIsLoading(true);
 
         try {
-            const signInResult = await signIn("credentials", {
+            const response = await signIn("credentials", {
                 redirect: false,
                 email,
                 password,
             });
 
-            if (signInResult?.ok) {
+            if (response?.ok) {
                 toast.success("Đăng nhập thành công");
                 router.push("/");
             } else {
-                toast.error("Email hoặc mật khẩu không đúng");
+                toast.error(
+                    response.message[0] || "Email hoặc mật khẩu không đúng"
+                );
             }
         } catch (error) {
             toast.error("Lỗi không xác định");
@@ -55,13 +57,16 @@ function Login() {
                                             <div className="padding_eight_all bg-white">
                                                 <div className="heading_s1">
                                                     <h1 className="mb-5">
-                                                        Login
+                                                        Đăng nhập
                                                     </h1>
 
                                                     <p className="mb-30">
-                                                        Don't have an account?{" "}
+                                                        Bạn chưa có tài khoản?{" "}
                                                         <Link href="/page-register">
-                                                            <a>Create here</a>
+                                                            <a>
+                                                                Đăng ký tài
+                                                                khoản
+                                                            </a>
                                                         </Link>
                                                     </p>
                                                 </div>
@@ -71,7 +76,7 @@ function Login() {
                                                             type="text"
                                                             required=""
                                                             name="email"
-                                                            placeholder="Username or Email *"
+                                                            placeholder="Tên tài khoản hoặc email *"
                                                             value={email}
                                                             onChange={(e) =>
                                                                 setEmail(
@@ -86,7 +91,7 @@ function Login() {
                                                             required=""
                                                             type="password"
                                                             name="password"
-                                                            placeholder="Your password *"
+                                                            placeholder="Mật khẩu *"
                                                             value={password}
                                                             onChange={(e) =>
                                                                 setPassword(
@@ -102,7 +107,7 @@ function Login() {
                                                                 type="text"
                                                                 required=""
                                                                 name="email"
-                                                                placeholder="Security code *"
+                                                                placeholder="Nhập mã"
                                                             />
                                                         </div>
                                                         <span className="security-code">
@@ -135,8 +140,9 @@ function Login() {
                                                                     htmlFor="exampleCheckbox1"
                                                                 >
                                                                     <span>
-                                                                        Remember
-                                                                        me
+                                                                        Ghi nhớ
+                                                                        đăng
+                                                                        nhập
                                                                     </span>
                                                                 </label>
                                                             </div>
@@ -145,7 +151,7 @@ function Login() {
                                                             className="text-muted"
                                                             href="#"
                                                         >
-                                                            Forgot password?
+                                                            Quên mật khẩu
                                                         </a>
                                                     </div>
                                                     <div className="form-group">
@@ -153,8 +159,11 @@ function Login() {
                                                             type="submit"
                                                             className="btn btn-heading btn-block hover-up"
                                                             name="login"
+                                                            disabled={isLoading}
                                                         >
-                                                            Log in
+                                                            {isLoading
+                                                                ? "Đang đăng nhập ..."
+                                                                : "Đăng nhập"}
                                                         </button>
                                                     </div>
                                                 </form>
