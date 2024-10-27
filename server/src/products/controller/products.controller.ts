@@ -13,7 +13,6 @@ import {
     UseInterceptors,
 } from "@nestjs/common";
 import {
-    FileFieldsInterceptor,
     FilesInterceptor,
 } from "@nestjs/platform-express";
 import { AdminGuard } from "src/guards/admin.guard";
@@ -22,7 +21,7 @@ import { ProductDto } from "../dtos/product.dto";
 import { ReviewDto } from "../dtos/review.dto";
 import { ProductsService } from "../services/products.service";
 import { AppService } from "src/app.service";
-import { Gallery, Image } from "../schemas/product.schema";
+import { Image } from "../schemas/product.schema";
 
 @Controller("products")
 export class ProductsController {
