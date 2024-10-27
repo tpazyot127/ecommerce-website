@@ -12,7 +12,10 @@ import {
     UseGuards,
     UseInterceptors,
 } from "@nestjs/common";
-import { FilesInterceptor } from "@nestjs/platform-express";
+import {
+    FileFieldsInterceptor,
+    FilesInterceptor,
+} from "@nestjs/platform-express";
 import { AdminGuard } from "src/guards/admin.guard";
 import { AuthGuard } from "src/guards/auth.guard";
 import { ProductDto } from "../dtos/product.dto";
@@ -81,8 +84,26 @@ export class ProductsController {
 
     @UseGuards(AdminGuard)
     @Put(":id")
-    updateProduct(@Param("id") id: string, @Body() product: ProductDto) {
-        return this.productsService.update(id, product);
+    @UseInterceptors(FilesInterceptor("images"))
+    async updateProduct(
+        @Param("id") id: string,
+        @Body() product: ProductDto,
+        @UploadedFiles() images: Express.Multer.File[]
+    ) {
+        const imageUrls: Image[] = await Promise.all(
+            images.map(async (image) => {
+                const res = await this.appService.uploadImageToCloudinary(
+                    image
+                );
+
+                return { img: res.url };
+            })
+        );
+
+        return this.productsService.update(id, {
+            ...product,
+            images: imageUrls,
+        });
     }
 
     @UseGuards(AuthGuard)
