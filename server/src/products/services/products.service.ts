@@ -1,157 +1,156 @@
 import {
-  BadRequestException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model, Types } from 'mongoose';
-import { PaginatedProducts } from 'src/interfaces';
-import { UserDocument } from 'src/users/schemas/user.schema';
-import { sampleProduct } from '../../utils/data/product';
-import { Product, ProductDocument } from '../schemas/product.schema';
+    BadRequestException,
+    Injectable,
+    NotFoundException,
+} from "@nestjs/common";
+import { InjectModel } from "@nestjs/mongoose";
+import { Model, Types } from "mongoose";
+import { PaginatedProducts } from "src/interfaces";
+import { UserDocument } from "src/users/schemas/user.schema";
+import { sampleProduct } from "../../utils/data/product";
+import { Product, ProductDocument } from "../schemas/product.schema";
 
 @Injectable()
 export class ProductsService {
-  constructor(
-    @InjectModel(Product.name) private productModel: Model<ProductDocument>
-  ) {}
+    constructor(
+        @InjectModel(Product.name) private productModel: Model<ProductDocument>
+    ) {}
 
-  async findTopRated(): Promise<ProductDocument[]> {
-    const products = await this.productModel
-      .find({})
-      .sort({ rating: -1 })
-      .limit(3);
+    async findTopRated(): Promise<ProductDocument[]> {
+        const products = await this.productModel
+            .find({})
+            .sort({ rating: -1 })
+            .limit(3);
 
-    if (!products.length) throw new NotFoundException('No products found.');
+        if (!products.length) throw new NotFoundException("No products found.");
 
-    return products;
-  }
+        return products;
+    }
 
-  async findMany(
-    keyword?: string,
-    pageId?: string
-  ): Promise<PaginatedProducts> {
-    const pageSize = 20;
-    const page = parseInt(pageId) || 1;
+    async findMany(
+        keyword?: string,
+        pageId?: string
+    ): Promise<PaginatedProducts> {
+        const pageSize = 20;
+        const page = parseInt(pageId) || 1;
 
-    const rgex = keyword ? { name: { $regex: keyword, $options: 'i' } } : {};
+        const rgex = keyword
+            ? { name: { $regex: keyword, $options: "i" } }
+            : {};
 
-    const count = await this.productModel.countDocuments({ ...rgex });
-    const products = await this.productModel
-      .find({ ...rgex })
-      .limit(pageSize)
-      .skip(pageSize * (page - 1));
+        const count = await this.productModel.countDocuments({ ...rgex });
+        const products = await this.productModel
+            .find({ ...rgex })
+            .limit(pageSize)
+            .skip(pageSize * (page - 1));
 
-    
-    if (!products.length) throw new NotFoundException('No products found.');
+        if (!products.length) throw new NotFoundException("No products found.");
 
-    return { products, page, pages: Math.ceil(count / pageSize) };
-  }
+        return { products, page, pages: Math.ceil(count / pageSize) };
+    }
 
-  async findById(id: string): Promise<ProductDocument> {
-    if (!Types.ObjectId.isValid(id))
-      throw new BadRequestException('Invalid product ID.');
+    async findById(id: string): Promise<ProductDocument> {
+        if (!Types.ObjectId.isValid(id))
+            throw new BadRequestException("Invalid product ID.");
 
-    const product = await this.productModel.findById(id);
+        const product = await this.productModel.findById(id);
 
-    if (!product) throw new NotFoundException('No product with given ID.');
+        if (!product) throw new NotFoundException("No product with given ID.");
 
-    return product;
-  }
+        return product;
+    }
 
-  async createMany(
-    products: Partial<ProductDocument>[]
-  ): Promise<ProductDocument[]> {
-    const createdProducts = await this.productModel.insertMany(products);
+    async createMany(
+        products: Partial<ProductDocument>[]
+    ): Promise<ProductDocument[]> {
+        const createdProducts = await this.productModel.insertMany(products);
 
-    return createdProducts;
-  }
+        return createdProducts;
+    }
 
-  async create(product: Partial<ProductDocument>): Promise<ProductDocument> {
-    const createdProduct = await this.productModel.create(product);
+    async create(product: Partial<ProductDocument>): Promise<ProductDocument> {
+        const createdProduct = await this.productModel.create(product);
+        return createdProduct;
+    }
 
-    return createdProduct;
-  }
+    async update(
+        id: string,
+        attrs: Partial<ProductDocument>
+    ): Promise<ProductDocument> {
+        const { title, price, desc, images, brand, category, stock } = attrs;
 
-  async update(
-    id: string,
-    attrs: Partial<ProductDocument>
-  ): Promise<ProductDocument> {
-    const { title, price, desc, images, brand, category, stock  } =
-      attrs;
+        if (!Types.ObjectId.isValid(id))
+            throw new BadRequestException("Invalid product ID.");
 
-    if (!Types.ObjectId.isValid(id))
-      throw new BadRequestException('Invalid product ID.');
+        const product = await this.productModel.findById(id);
 
-    const product = await this.productModel.findById(id);
+        if (!product) throw new NotFoundException("No product with given ID.");
 
-    if (!product) throw new NotFoundException('No product with given ID.');
+        product.title = title;
+        product.price = price;
+        product.desc = desc;
+        product.images = images;
+        product.brand = brand;
+        product.category = category;
+        product.stock = stock;
 
-    product.title = title;
-    product.price = price;
-    product.desc = desc; 
-    product.images = images;
-    product.brand = brand;
-    product.category = category;
-    product.stock = stock;
+        const updatedProduct = await product.save();
 
-    const updatedProduct = await product.save();
+        return updatedProduct;
+    }
 
-    return updatedProduct;
-  }
+    async createReview(
+        id: string,
+        user: Partial<UserDocument>,
+        rating: number,
+        comment: string
+    ): Promise<ProductDocument> {
+        if (!Types.ObjectId.isValid(id))
+            throw new BadRequestException("Invalid product ID.");
 
-  async createReview(
-    id: string,
-    user: Partial<UserDocument>,
-    rating: number,
-    comment: string
-  ): Promise<ProductDocument> {
-    if (!Types.ObjectId.isValid(id))
-      throw new BadRequestException('Invalid product ID.');
+        const product = await this.productModel.findById(id);
 
-    const product = await this.productModel.findById(id);
+        if (!product) throw new NotFoundException("No product with given ID.");
 
-    if (!product) throw new NotFoundException('No product with given ID.');
+        const alreadyReviewed = product.reviews.find(
+            (r) => r.user.toString() === user._id.toString()
+        );
 
-    const alreadyReviewed = product.reviews.find(
-      r => r.user.toString() === user._id.toString()
-    );
+        if (alreadyReviewed)
+            throw new BadRequestException("Product already reviewed!");
 
-    if (alreadyReviewed)
-      throw new BadRequestException('Product already reviewed!');
+        const review = {
+            name: user.name,
+            rating,
+            comment,
+            user: user._id,
+        };
 
-    const review = {
-      name: user.name,
-      rating,
-      comment,
-      user: user._id,
-    };
+        product.reviews.push(review);
 
-    product.reviews.push(review);
+        product.rating =
+            product.reviews.reduce((acc, item) => item.rating + acc, 0) /
+            product.reviews.length;
 
-    product.rating =
-      product.reviews.reduce((acc, item) => item.rating + acc, 0) /
-      product.reviews.length;
+        product.numReviews = product.reviews.length;
 
-    product.numReviews = product.reviews.length;
+        const updatedProduct = await product.save();
 
-    const updatedProduct = await product.save();
+        return updatedProduct;
+    }
 
-    return updatedProduct;
-  }
+    async deleteOne(id: string): Promise<void> {
+        if (!Types.ObjectId.isValid(id))
+            throw new BadRequestException("Invalid product ID.");
 
-  async deleteOne(id: string): Promise<void> {
-    if (!Types.ObjectId.isValid(id))
-      throw new BadRequestException('Invalid product ID.');
+        const product = await this.productModel.findById(id);
 
-    const product = await this.productModel.findById(id);
+        if (!product) throw new NotFoundException("No product with given ID.");
 
-    if (!product) throw new NotFoundException('No product with given ID.');
+        await product.remove();
+    }
 
-    await product.remove();
-  }
-
-  async deleteMany(): Promise<void> {
-    await this.productModel.deleteMany({});
-  }
+    async deleteMany(): Promise<void> {
+        await this.productModel.deleteMany({});
+    }
 }
