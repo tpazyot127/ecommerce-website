@@ -1,8 +1,10 @@
+import { CloudinaryModule } from 'src/cloudinary/cloudinary.module';
 import { Module } from "@nestjs/common";
 import { ProductsService } from "./services/products.service";
 import { ProductsController } from "./controller/products.controller";
 import { MongooseModule } from "@nestjs/mongoose";
 import { Product, ProductSchema } from "./schemas/product.schema";
+import { AppService } from 'src/app.service';
 import {
   ProductCategory,
   ProductCategorySchema,
@@ -12,6 +14,7 @@ import { ProductCategoriesController } from "./controller/productCategory.contro
 
 @Module({
   imports: [
+    CloudinaryModule,
     MongooseModule.forFeature([
       {
         name: Product.name,
@@ -23,7 +26,7 @@ import { ProductCategoriesController } from "./controller/productCategory.contro
       },
     ]),
   ],
-  providers: [ProductsService, ProductCategoriesService],
+  providers: [ProductsService, ProductCategoriesService, AppService],
   controllers: [ProductsController, ProductCategoriesController],
 })
 export class ProductsModule {}
