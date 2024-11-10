@@ -1,7 +1,7 @@
 import {
-    BadRequestException,
-    Injectable,
-    NotFoundException,
+  BadRequestException,
+  Injectable,
+  NotFoundException,
 } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model, Types } from "mongoose";
@@ -22,7 +22,7 @@ export class ProductsService {
             .sort({ rating: -1 })
             .limit(3);
 
-        if (!products.length) throw new NotFoundException("No products found.");
+    if (!products.length) throw new NotFoundException("No products found.");
 
         return products;
     }
@@ -34,9 +34,7 @@ export class ProductsService {
         const pageSize = 20;
         const page = parseInt(pageId) || 1;
 
-        const rgex = keyword
-            ? { name: { $regex: keyword, $options: "i" } }
-            : {};
+    const rgex = keyword ? { name: { $regex: keyword, $options: "i" } } : {};
 
         const count = await this.productModel.countDocuments({ ...rgex });
         const products = await this.productModel
@@ -44,14 +42,14 @@ export class ProductsService {
             .limit(pageSize)
             .skip(pageSize * (page - 1));
 
-        if (!products.length) throw new NotFoundException("No products found.");
+    if (!products.length) throw new NotFoundException("No products found.");
 
         return { products, page, pages: Math.ceil(count / pageSize) };
     }
 
-    async findById(id: string): Promise<ProductDocument> {
-        if (!Types.ObjectId.isValid(id))
-            throw new BadRequestException("Invalid product ID.");
+  async findById(id: string): Promise<ProductDocument> {
+    if (!Types.ObjectId.isValid(id))
+      throw new BadRequestException("Invalid product ID.");
 
         const product = await this.productModel.findById(id);
 
