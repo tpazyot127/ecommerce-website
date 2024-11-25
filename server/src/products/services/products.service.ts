@@ -80,6 +80,7 @@ export class ProductsService {
     const {
       title,
       price,
+      oldPrice,
       desc,
       images,
       gallery,
@@ -98,6 +99,7 @@ export class ProductsService {
 
     product.title = title;
     product.price = price;
+    product.oldPrice = oldPrice;
     product.desc = desc;
     product.images = images;
     product.gallery = gallery;
