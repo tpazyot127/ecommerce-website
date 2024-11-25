@@ -22,7 +22,7 @@ const TopRatedSlider = () => {
 
     // Discount
     const discountProduct = allProducts?.filter(
-      (item) => item.discount[0].isActive
+      (item) => item?.discount[0]?.isActive
     );
 
     setDiscount(discountProduct);

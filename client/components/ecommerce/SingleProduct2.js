@@ -38,10 +38,10 @@ const SingleProduct2 = ({
               <a>
                 <img
                   className="default-img"
-                  src={product.images[0].img}
+                  src={product?.images[0]?.img}
                   alt=""
                 />
-                <img className="hover-img" src={product.images[1].img} alt="" />
+                <img className="hover-img" src={product?.images[1]?.img} alt="" />
               </a>
             </Link>
           </div>

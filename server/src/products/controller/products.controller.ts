@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  InternalServerErrorException,
   Param,
   Post,
   Put,
@@ -11,6 +12,8 @@ import {
   UploadedFiles,
   UseGuards,
   UseInterceptors,
+  HttpException,
+  HttpStatus,
 } from "@nestjs/common";
 import { FilesInterceptor } from "@nestjs/platform-express";
 import { AdminGuard } from "src/guards/admin.guard";
@@ -53,25 +56,16 @@ export class ProductsController {
   }
 
   @Post("create")
-  @UseInterceptors(FilesInterceptor("images"))
-  async createProduct(
-    @Body() body: any,
-    @UploadedFiles() images: Express.Multer.File[]
-  ) {
-    const imageUrls: Image[] = await Promise.all(
-      images.map(async (image) => {
-        const res = await this.appService.uploadImageToCloudinary(
-            image
-        );
+  async createProduct(@Body() product: ProductDto) {
+    try {
+      const createdProduct = await this.productsService.create({
+        ...product,
+      });
 
-        return { img: res.url };
-      })
-    );
-
-    return this.productsService.create({
-      ...body,
-      images: imageUrls,
-    });
+      return createdProduct;
+    } catch (error) {
+      throw new HttpException("Tạo sản phẩm thất bại", error);
+    }
   }
 
   @Post("createMany")
@@ -85,22 +79,27 @@ export class ProductsController {
   async updateProduct(
     @Param("id") id: string,
     @Body() product: ProductDto,
-    @UploadedFiles() images: Express.Multer.File[]
+    @UploadedFiles() images?: Express.Multer.File[]
   ) {
-    const imageUrls: Image[] = await Promise.all(
-      images.map(async (image) => {
-        const res = await this.appService.uploadImageToCloudinary(
-          image
-        );
+    try {
+      const imageUrls: Image[] = await Promise.all(
+        images?.map(async (image) => {
+          const res = await this.appService.uploadImageToCloudinary(image);
 
-        return { img: res.url };
-      })
-    );
+          return { img: res.url };
+        })
+      );
 
-    return this.productsService.update(id, {
-      ...product,
-      images: imageUrls,
-    });
+      return this.productsService.update(id, {
+        ...product,
+        images: imageUrls,
+      });
+    } catch (error) {
+      throw new HttpException(
+        "Sửa sản phẩm thất bại",
+        HttpStatus.INTERNAL_SERVER_ERROR
+      );
+    }
   }
 
   @UseGuards(AuthGuard)
@@ -110,11 +109,6 @@ export class ProductsController {
     @Body() { rating, comment }: ReviewDto,
     @Session() session: any
   ) {
-    return this.productsService.createReview(
-      id,
-      session.user,
-      rating,
-      comment
-    );
+    return this.productsService.createReview(id, session.user, rating, comment);
   }
 }

@@ -42,7 +42,7 @@ const NewArrival2 = () => {
               <figure className="col-md-4 mb-0">
                 <Link href="/products/[slug]" as={`/products/${product.slug}`}>
                   <a>
-                    <img src={product.images[0].img} alt="" />
+                    <img src={product?.images[0]?.img} alt="" />
                   </a>
                 </Link>
               </figure>

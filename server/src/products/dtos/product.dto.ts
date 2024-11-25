@@ -1,20 +1,43 @@
-import { IsString, IsNumber } from "class-validator";
+import { IsString, IsNumber, IsArray, ValidateNested, IsOptional } from "class-validator";
+import { Type } from "class-transformer";
+
+class ImageDto {
+  @IsString()
+  img: string;
+}
+
+class GalleryDto {
+  @IsString()
+  thumb: string;
+}
 
 export class ProductDto {
   @IsString()
-  name: string;
+  title: string;
 
   @IsNumber()
   price: number;
 
   @IsString()
-  description: string;
+  desc: string;
 
-  @IsString()
-  image: string;
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => ImageDto)
+  @IsOptional()
+  images?: ImageDto[];
+
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => GalleryDto)
+  @IsOptional()
+  gallery?: GalleryDto[];
 
   @IsString()
   brand: string;
+
+  @IsString()
+  slug: string;
 
   @IsString()
   category: string;
