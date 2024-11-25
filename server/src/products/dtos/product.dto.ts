@@ -18,6 +18,9 @@ export class ProductDto {
   @IsNumber()
   price: number;
 
+  @IsNumber()
+  oldPrice: number;
+
   @IsString()
   desc: string;
 
@@ -43,5 +46,8 @@ export class ProductDto {
   category: string;
 
   @IsNumber()
-  countInStock: number;
+  rating: number;
+
+  @IsNumber()
+  stock: number;
 }

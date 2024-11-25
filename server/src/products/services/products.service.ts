@@ -77,7 +77,17 @@ export class ProductsService {
     id: string,
     attrs: Partial<ProductDocument>
   ): Promise<ProductDocument> {
-    const { title, price, desc, images, brand, category, stock } = attrs;
+    const {
+      title,
+      price,
+      desc,
+      images,
+      gallery,
+      brand,
+      category,
+      stock,
+      rating,
+    } = attrs;
 
     if (!Types.ObjectId.isValid(id))
       throw new BadRequestException("Invalid product ID.");
@@ -90,9 +100,11 @@ export class ProductsService {
     product.price = price;
     product.desc = desc;
     product.images = images;
+    product.gallery = gallery;
     product.brand = brand;
     product.category = category;
     product.stock = stock;
+    product.rating = rating;
 
     const updatedProduct = await product.save();
 

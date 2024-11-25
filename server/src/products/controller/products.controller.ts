@@ -3,33 +3,24 @@ import {
   Controller,
   Delete,
   Get,
-  InternalServerErrorException,
   Param,
   Post,
   Put,
   Query,
   Session,
-  UploadedFiles,
   UseGuards,
-  UseInterceptors,
   HttpException,
   HttpStatus,
 } from "@nestjs/common";
-import { FilesInterceptor } from "@nestjs/platform-express";
 import { AdminGuard } from "src/guards/admin.guard";
 import { AuthGuard } from "src/guards/auth.guard";
 import { ProductDto } from "../dtos/product.dto";
 import { ReviewDto } from "../dtos/review.dto";
 import { ProductsService } from "../services/products.service";
-import { AppService } from "src/app.service";
-import { Image } from "../schemas/product.schema";
 
 @Controller("products")
 export class ProductsController {
-  constructor(
-    private productsService: ProductsService,
-    private appService: AppService
-  ) {}
+  constructor(private productsService: ProductsService) {}
 
   @Get()
   getProducts(
@@ -73,26 +64,12 @@ export class ProductsController {
     return this.productsService.createMany(products);
   }
 
-  @UseGuards(AdminGuard)
+  // @UseGuards(AdminGuard)
   @Put(":id")
-  @UseInterceptors(FilesInterceptor("images"))
-  async updateProduct(
-    @Param("id") id: string,
-    @Body() product: ProductDto,
-    @UploadedFiles() images?: Express.Multer.File[]
-  ) {
+  async updateProduct(@Param("id") id: string, @Body() product: ProductDto) {
     try {
-      const imageUrls: Image[] = await Promise.all(
-        images?.map(async (image) => {
-          const res = await this.appService.uploadImageToCloudinary(image);
-
-          return { img: res.url };
-        })
-      );
-
       return this.productsService.update(id, {
         ...product,
-        images: imageUrls,
       });
     } catch (error) {
       throw new HttpException(
